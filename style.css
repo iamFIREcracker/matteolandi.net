@@ -1,0 +1,29 @@
+body {
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  font-size: 14px;
+  color: #333;
+  width: 1024px;
+}
+
+#left, #right{
+  float: left;
+  margin: 10px 0px 10px 10px;
+  width: 400px;
+}
+
+#left img {
+  max-width: 400px;
+}
+
+#right {
+  background-color: #ddd;
+  padding: 20px;
+}
+
+span.code, span.bold {
+  font-family: "Courier New", Courier, monospace; 
+}
+
+span.bold {
+  font-weight: bolder;
+}
