@@ -1,0 +1,2 @@
+[app]
+46.101.139.231 ansible_ssh_user=deploy

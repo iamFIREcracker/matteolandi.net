@@ -1,0 +1,12 @@
+- include_role:
+    name: docker-login
+
+- name: Create container matteolandi-index
+  docker_container:
+    name: matteolandi-index
+    image: "{{ docker_registry_url }}/matteolandi-index"
+    state: started
+    recreate: yes
+    pull: yes
+    ports:
+      - "2811:80"

@@ -1,0 +1,4 @@
+---
+- include: nginx.yml
+- include: matteolandi-index.yml
+- include: matteolandi-ourwedding.yml

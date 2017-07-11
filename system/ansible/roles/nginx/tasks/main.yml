@@ -1,0 +1,13 @@
+- name: 'Creates /data/nginx directory'
+  file:
+    path: /data/nginx
+    state: directory
+    mode: 0775
+
+- name: 'Copy nginx.conf'
+  template:
+    src: nginx.conf.j2
+    dest: /data/nginx/nginx.conf
+
+- name: 'Reload nginx'
+  shell: 'sudo nginx -s reload'

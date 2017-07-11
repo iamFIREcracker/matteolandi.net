@@ -1,0 +1,21 @@
+- name: 'Creates /data/matteolandi-ourwedding directory'
+  file:
+    path: /data/matteolandi-ourwedding
+    state: directory
+    mode: 0775
+
+- include_role:
+    name: docker-login
+
+- name: Create container matteolandi-ourwedding
+  docker_container:
+    name: matteolandi-ourwedding
+    image: "{{ docker_registry_url }}/polaroid-wall"
+    state: started
+    recreate: yes
+    pull: yes
+    volumes:
+      - "/data/matteolandi-ourwedding/config.js:/usr/share/nginx/html/config.js:ro"
+      - "/data/matteolandi-ourwedding/images:/usr/share/nginx/html/images:ro"
+    ports:
+    - "2905:80"
