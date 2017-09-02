@@ -7,20 +7,26 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 <url>
   <loc>http://www.matteolandi.net/</loc>
-  <lastmod>2017-02-20T00:03:00+00:00</lastmod>
+  <lastmod>2017-09-03T00:03:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>http://www.matteolandi.net/felicemente.html</loc>
   <lastmod>2017-01-08T12:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>http://www.matteolandi.net/resolutions.html</loc>
   <lastmod>2017-02-20T00:03:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.matteolandi.net/cb.html</loc>
+  <lastmod>2017-09-03T00:03:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
 </urlset>
