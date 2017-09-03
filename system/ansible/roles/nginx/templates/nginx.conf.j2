@@ -44,6 +44,11 @@ http {
             proxy_pass http://0.0.0.0:2811;
         }
 
+        location /downloads {
+            sendfile  on;
+            root      /data/nginx;
+        }
+
         location /ourwedding {
             rewrite ^([^.]*[^/])$ $1/ permanent;
             proxy_set_header X-Forwarded-Host $host;

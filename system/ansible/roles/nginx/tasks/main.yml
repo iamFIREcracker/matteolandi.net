@@ -4,6 +4,12 @@
     state: directory
     mode: 0775
 
+- name: 'Creates /data/nginx/downloads directory'
+  file:
+    path: /data/nginx/downloads
+    state: directory
+    mode: 0775
+
 - name: 'Copy nginx.conf'
   template:
     src: nginx.conf.j2
