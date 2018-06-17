@@ -25,7 +25,13 @@
 </url>
 <url>
   <loc>http://www.matteolandi.net/cb.html</loc>
-  <lastmod>2017-09-03T00:03:00+00:00</lastmod>
+  <lastmod>2018-06-017T13:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.matteolandi.net/cb.html</loc>
+  <lastmod>2018-06-017T13:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
