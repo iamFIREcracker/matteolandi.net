@@ -1,0 +1,24 @@
+exec >>/data/acme/logs/update-acme-certs 2>&1
+date
+
+acme() {
+    email=$1
+    shift
+    site=$2
+    shift
+    certbot certonly \
+        --rsa-key-size 4096 \
+        --webroot \
+        --agree-tos \
+        --no-eff-email --email $email \
+        --config-dir /data/acme/config \
+        --work-dir /data/acme/work \
+        --logs-dir /data/acme/logs \
+        -w /data/acme \
+        --keep-until-expiring \
+        -d matteolandi.net
+}
+
+acme {{ email }} {{ server_name }}
+
+sudo nginx -s reload

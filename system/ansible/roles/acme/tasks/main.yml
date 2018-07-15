@@ -1,0 +1,46 @@
+- name: 'Creates /data/acme directory'
+  file:
+    path: /data/acme
+    state: directory
+    mode: 0775
+
+- name: 'Creates /data/acme/config directory'
+  file:
+    path: /data/acme/config
+    state: directory
+    mode: 0775
+
+- name: 'Creates /data/acme/logs directory'
+  file:
+    path: /data/acme/logs
+    state: directory
+    mode: 0775
+
+- name: 'Creates /data/acme/work directory'
+  file:
+    path: /data/acme/work
+    state: directory
+    mode: 0775
+
+- name: 'Creates /data/acme/.well-known/acme-challenge'
+  file:
+    path: /data/acme/.well-known/acme-challenge
+    state: directory
+    mode: 0775
+    recurse: yes
+
+- name: 'Copies update-acme-certs'
+  template:
+    src: update-acme-certs.j2
+    dest: /data/acme/update-acme-certs
+    mode: 0700
+
+- name: 'Executes update-acme-certs'
+  shell: /data/acme/update-acme-certs
+
+- name: 'Installs cron job for daily refresh of certiicates'
+  cron:
+    name: 'ACME daily refresh'
+    hour: '0'
+    minute: '0'
+    job: '/data/acme/update-acme-certs'

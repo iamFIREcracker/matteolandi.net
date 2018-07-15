@@ -32,10 +32,31 @@ http {
     include /etc/nginx/conf.d/*.conf;
 
     server {
-        listen       80 default_server;
-        listen       [::]:80 default_server;
+        listen       80;
+        listen       [::]:80;
+        server_name  matteolandi.net;
+
+        location / {
+            return 302 https://$server_name$request_uri;
+        }
+
+        location ^~ /.well-known/acme-challenge {
+            root /data/acme;
+        }
+    }
+
+    server {
+        listen       443 ssl;
+        listen       [::]:443 ssl;
         server_name  matteolandi.net;
         root         /usr/share/nginx/html;
+
+        ssl_certificate /data/acme/config/live/matteolandi.net/fullchain.pem;
+        ssl_certificate_key /data/acme/config/live/matteolandi.net/privkey.pem;
+
+        location ^~ /.well-known/acme-challenge {
+            root /data/acme;
+        }
 
         location / {
             proxy_set_header X-Forwarded-Host $host;
