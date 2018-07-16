@@ -3,22 +3,3 @@
     path: /data/boostrap
     state: directory
     mode: 0775
-
-- name: 'Creates /data/boostrap/acme-client'
-  file:
-    path: /data/bootstrap/acme-client
-    state: directory
-    mode: 0775
-
-- name: 'Copies acme-client.tgz'
-  copy:
-    src: roles/bootstrap/files/acme-client.tgz
-    dest: /data/bootstrap/acme-client/acme-client.tgz
-    mode: 0700
-
-- name: 'Copies acme-client-portable.tgz'
-  file:
-    src: roles/bootstrap/files/acme-client-portable.tgz
-
-    mode: 0700
-
