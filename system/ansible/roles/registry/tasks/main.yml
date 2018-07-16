@@ -1,0 +1,53 @@
+- name: 'Creates /data/registry directory'
+  file:
+    path: /data/registry
+    state: directory
+    mode: 0775
+
+- name: 'Creates /data/registry/certs directory'
+  file:
+    path: /data/registry/certs
+    state: directory
+    mode: 0775
+
+- name: 'Creates /data/registry/auth directory'
+  file:
+    path: /data/registry/auth
+    state: directory
+    mode: 0775
+
+- name: 'Copies registry cert'
+  copy:
+    content: "{{ _vault_docker_registry_cert }}"
+    dest: /data/registry/certs/domain.crt
+    mode: 0644
+
+- name: 'Copies registry key'
+  copy:
+    content: "{{ _vault_docker_registry_key }}"
+    dest: /data/registry/certs/domain.key
+    mode: 0644
+
+- include_role:
+    name: docker-login
+
+- name: 'Generate /data/registry/auth/htpasswd'
+  shell: docker run --entrypoint htpasswd registry:2 -Bbn {{ docker_registry_username }} {{ docker_registry_password }} > /data/registry/auth/htpasswd
+
+- name: 'Runs the registry'
+  docker_container:
+    name: registry
+    image: registry:2
+    state: started
+    restart: yes
+    published_ports:
+      - 5000:5000
+    env:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
+      REGISTRY_HTTP_TLS_KEY: /certs/domain.key
+    volumes:
+      - /data/registry/auth:/auth
+      - /data/registry/certs:/certs
