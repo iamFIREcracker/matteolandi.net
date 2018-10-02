@@ -1,5 +1,5 @@
-- name: 'Creates /data/boostrap directory'
+- name: 'Creates /data'
   file:
-    path: /data/boostrap
+    path: /data
     state: directory
     mode: 0775
