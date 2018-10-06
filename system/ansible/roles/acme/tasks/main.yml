@@ -38,7 +38,7 @@
 - name: 'Executes update-acme-certs'
   shell: /data/acme/update-acme-certs
 
-- name: 'Installs cron job for daily refresh of certiicates'
+- name: 'Installs cron job for daily refresh of acme certificates'
   cron:
     name: 'ACME daily refresh'
     hour: '0'

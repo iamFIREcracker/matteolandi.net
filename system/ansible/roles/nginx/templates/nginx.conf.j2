@@ -58,6 +58,13 @@ http {
             root /data/acme;
         }
 
+        location /.plan {
+            root /data/plan;
+            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+            add_header Content-Type text/plain;
+            expires off;
+        }
+
         location / {
             proxy_set_header X-Forwarded-Host $host;
             proxy_set_header X-Forwarded-Server $host;

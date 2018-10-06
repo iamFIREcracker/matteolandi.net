@@ -1,0 +1,28 @@
+- name: 'Creates /data/plan directory'
+  file:
+    path: /data/plan
+    state: directory
+    mode: 0775
+
+
+- name: 'Creates /data/plan/logs directory'
+  file:
+    path: /data/plan/logs
+    state: directory
+    mode: 0775
+
+- name: 'Copies /data/plan/update-plan'
+  copy:
+    src: update-plan
+    dest: /data/plan/update-plan
+    mode: 0700
+
+- name: 'Executes update-plan'
+  shell: /data/plan/update-plan
+
+- name: 'Installs cron job for daily refresh of plan file'
+  cron:
+    name: '.plan daily refresh'
+    hour: '0'
+    minute: '15'
+    job: '/data/acme/update-plan'

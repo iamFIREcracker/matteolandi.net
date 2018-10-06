@@ -1,0 +1,4 @@
+exec >>/data/plan/logs/update-plan 2>&1
+date
+
+
