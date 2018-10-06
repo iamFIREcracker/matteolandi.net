@@ -1,4 +1,4 @@
 exec >>/data/plan/logs/update-plan 2>&1
 date
 
-
+curl -L -o /data/plan/.plan https://www.dropbox.com/s/wj9409c9fazfrbf/.plan?dl=0

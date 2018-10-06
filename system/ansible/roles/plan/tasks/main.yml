@@ -25,4 +25,4 @@
     name: '.plan daily refresh'
     hour: '0'
     minute: '15'
-    job: '/data/acme/update-plan'
+    job: '/data/plan/update-plan'
