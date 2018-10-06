@@ -16,8 +16,22 @@ pre {
 
 #container #left,
 #container #right {
-  float: left;
-  width: 28rem;
+  flex: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  #container #left,
+  #container #right {
+    max-width: 28rem;
+  }
+}
+
+
+@media only screen and (min-width: 992px) {
+  #container #left,
+  #container #right {
+    flex: 1;
+  }
 }
 
 #container #content {
@@ -29,7 +43,7 @@ pre {
 }
 
 #right img {
-  max-width: 28rem;
+  width: 100%;
 }
 
 .code {
