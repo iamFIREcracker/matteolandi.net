@@ -35,6 +35,7 @@ Create deploy user
 Bootstrap everything:
 
     cd system/ansible
+    ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
     ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
 
 # build a module
