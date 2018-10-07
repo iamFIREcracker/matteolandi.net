@@ -1,0 +1,29 @@
+#!/usr/bin/env bash -e
+
+BASE_URL="https://matteolandi.net/"
+
+# values: always hourly daily weekly monthly yearly never
+FREQ="weekly"
+
+# begin new sitemap
+cd static
+exec 1> sitemap.xml
+
+# print head
+echo '<?xml version="1.0" encoding="UTF-8"?>'
+echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+
+# print urls
+find . -type f -iname \*.html | \
+while read -r line; do
+    file=${line:2}
+    mdate=$(date -r ${file} "+%Y-%m-%dT%H:%M:%S%z")
+    echo "<url>"
+    echo "  <loc>${BASE_URL}${file}</loc>"
+    echo "  <lastmod>${mdate}</lastmod>"
+    echo "  <changefreq>$FREQ</changefreq>"
+    echo "</url>"
+done
+
+# print foot
+echo "</urlset>"
