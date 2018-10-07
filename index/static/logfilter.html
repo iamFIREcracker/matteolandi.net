@@ -9,56 +9,54 @@
   </head>
 
   <body>
-    <div id="container">
-      <div id="left">
-        <div id="content">
-          <h1>logfilter</h1>
-          <h2>Description</h2>
-          <p>
-          Take the command <code>tail -f</code>, combine it with <code>grep -e
-            PATTER [-e PATTERN ...]</code>, add a simple GUI enabling users
-          to choose the log file to monitor and the filters to use: this is
-          logfilter in a nutshell!
-          </p>
+    <header>
+      <h1>logfilter</h1>
+      <aside>Never miss a log exception anymore!</aside>
+    </header>
+    <h2>Description</h2>
+    <p>
+    <code>logfilter</code> is a simple application which raises the attention of the user each time a line matching a certain regular expression is appended to a file.
+    </p>
 
-          <h2>Download</h2>
-          <p>
-          Pypi: <a href="https://pypi.org/project/logfilter">https://pypi.org/project/logfilter/</a>
-          <h2>Sources</h2>
-          <p>
-          Bitbucket: <a href="https://bitbucket.org/iamFIREcracker/logfilter">https://bitbucket.org/iamFIREcracker/logfilter</a>
-          </p>
-        </div>
-      </div>
-      <div id="right">
-        <div class="code">
-          <span>Install <code>logfilter</code>:</span>
-          <pre>
-            <code>
-  &gt; pip install logfilter
-            </code>
-          </pre>
-          <span>Start monitoring your log file (same as <code> tail -f</code>, plus the UI)</span>
-          <pre>
-            <code>
-  &gt; logfilter LOGFILE.log
-            </code>
-          </pre>
-          <span>Want to pre-load a bunch of filters? No problem!</span>
-          <pre>
-            <code>
-  &gt; logfilter -e '([Ee]xception|\tat)' LOGFILE.log
-            </code>
-          </pre>
-          <span>Interested in only the most 10000 recent log messages? No problem:</span>
-          <pre>
-            <code>
-  &gt; logfilter -e '([Ee]xception|\tat)' -l 10000 LOGFILE.log
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    <p>
+    Take the command <code>tail -f</code>, combine it with <code>grep -e PATTER [-e PATTERN ...]</code>, add a simple GUI enabling users to choose the log file to monitor and the filters to use: this is <code>logfilter</code> in a nutshell!
+    </p>
+
+    <img class="full-width" src="logfilter.png" alt="Felicemente screenshot">
+
+    <h2>Hands-on</h2>
+    <span>Install <code>logfilter</code>:</span>
+    <pre>
+      <code>
+&gt; pip install logfilter
+      </code>
+    </pre>
+    <span>Start monitoring your log file (same as <code> tail -f</code>, plus the UI)</span>
+    <pre>
+      <code>
+&gt; logfilter LOGFILE.log
+      </code>
+    </pre>
+    <span>Want to pre-load a bunch of filters? No problem!</span>
+    <pre>
+      <code>
+&gt; logfilter -e '([Ee]xception|\tat)' LOGFILE.log
+      </code>
+    </pre>
+    <span>Interested in only the most 10000 recent log messages? No problem:</span>
+    <pre>
+      <code>
+&gt; logfilter -e '([Ee]xception|\tat)' -l 10000 LOGFILE.log
+      </code>
+    </pre>
+
+    <h2>Download</h2>
+    <p>
+    Pypi: <a href="https://pypi.org/project/logfilter">https://pypi.org/project/logfilter/</a>
+    <h2>Sources</h2>
+    <p>
+    Bitbucket: <a href="https://bitbucket.org/iamFIREcracker/logfilter">https://bitbucket.org/iamFIREcracker/logfilter</a>
+    </p>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-5007712-6']);

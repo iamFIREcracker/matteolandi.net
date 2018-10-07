@@ -9,71 +9,54 @@
   </head>
 
   <body>
-    <div id="container">
-      <div id="left">
-        <div id="content">
-          <h1>br</h1>
-          <h2>Description</h2>
-          <p>
-          My life as a developer is a mess: at work I have a laptop with Windows
-          7 and Cygwin installed; I also have a Vagrant box, running Ubuntu, that
-          I use to do the most of my development work.  At home I have a Macbook
-          Air, with Mac OS Sierra.
-          </p>
+    <header>
+      <h1>br</h1>
+      <aside>Simple tool to send a URL to your default browser -- it works from within SSH sessions too!</aside>
+    </header>
 
-          <p>
-          I have been a Vim user for years, but only recently I discovered the
-          <code>:Gbrowse</code> command from the awesome
-          <a href="https://github.com/tpope/vim-fugitive" alt="vim-fugitive">vim-fugitive</a>
-          -- but of course it wasn't working from within a remote session as which
-          browser should it try to open the URL with?
-          </p>
+    <h2>Description</h2>
+    <p>
+    My life as a developer is a mess: at work I have a laptop with Windows 7 and Cygwin installed; I also have a Vagrant box, running Ubuntu, that I use to do the most of my development work.  At home I have a Macbook Air, with Mac OS Sierra.
+    </p>
 
-          <p>
-          Wouldn't it be nice if I could read from the OS clipboard, or write to it,
-          using a single command line tool? And wouldn't it awesome if the same tool
-          worked on various operating systems? (at least the ones I use on a daily basis)
-          </p>
+    <p>
+    I have been a Vim user for years, but only recently I discovered the <code>:Gbrowse</code> command from the awesome <a href="https://github.com/tpope/vim-fugitive" alt="vim-fugitive">vim-fugitive</a> -- but of course it wasn't working from within a remote session as which browser should it try to open the URL with?
+    </p>
 
-          <p>
-          I had already built
-          <a href="./cb.html" alt="cb">cb</a> in the
-          past, so I thought maybe I can re-use some if it and build something that
-          would make <code>:Gbrowse</code> work fine, even when working remotely.
-          </p>
+    <p>
+    Wouldn't it be nice if I could read from the OS clipboard, or write to it, using a single command line tool? And wouldn't it awesome if the same tool worked on various operating systems? (at least the ones I use on a daily basis)
+    </p>
 
-          <p>
-          <em>enters <code>br</code>..</em>
-          </p>
+    <p>
+    I had already built <a href="./cb.html" alt="cb">cb</a> in the past, so I thought maybe I can re-use some if it and build something that would make <code>:Gbrowse</code> work fine, even when working remotely.
+    </p>
 
-          <h2>Sources</h2>
-          <p>
-          Github: <a href="https://github.com/iamFIREcracker/br">https://github.com/iamFIREcracker/br</a>
-          </p>
-        </div>
-      </div>
-      <div id="right">
-        <div class="code">
-          <span>Open a URL from the command line</span>
-          <pre>
-            <code>
-  &gt; br https://google.com
-  // opens URL with your default browser
-            </code>
-          </pre>
-          <span>It works remotely too!</span>
-          <pre>
-            <code>
-  &gt; br --listen &amp;
-  &gt; ssh -R 5557:localhost:5557 user@remote
-  &gt; br https://google.com
-  // opens URL with your default browser
-  // (on the host machine!)
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    <p>
+    <em>enters <code>br</code>..</em>
+    </p>
+
+    <h2>Hands-on</h2>
+    <span>Open a URL from the command line</span>
+    <pre>
+      <code>
+&gt; br https://google.com
+// opens URL with your default browser
+      </code>
+    </pre>
+    <span>It works remotely too!</span>
+    <pre>
+      <code>
+&gt; br --listen &amp;
+&gt; ssh -R 5557:localhost:5557 user@remote
+remote&gt; br https://google.com
+// opens URL with your default browser...on the host machine!
+      </code>
+    </pre>
+
+    <h2>Sources</h2>
+    <p>
+    Github: <a href="https://github.com/iamFIREcracker/br">https://github.com/iamFIREcracker/br</a>
+    </p>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-5007712-6']);

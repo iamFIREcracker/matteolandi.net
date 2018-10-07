@@ -9,88 +9,73 @@
   </head>
 
   <body>
-    <div id="container">
-      <div id="left">
-        <div id="content">
-          <h1>cb</h1>
-          <h2>Description</h2>
-          <p>
-          Yet another tool to wrap reads from, and writes to the OS clipboard -- it
-          works from within SSH sessions too!
-          </p>
+    <header>
+      <h1>cb</h1>
+      <aside>Yet another tool to wrap reads from, and writes to the OS clipboard -- it works from within SSH sessions too!</aside>
+    </header>
+    <h2>Description</h2>
+    <p>
+    Yet another tool to wrap reads from, and writes to the OS clipboard -- it works from within SSH sessions too!
+    </p>
 
-          <p>
-          My life as a developer is a mess: at work I have a laptop with Windows
-          7 and Cygwin installed; I also have a Vagrant box, running Ubuntu, that
-          I use to do the most of my development work.  At home I have a Macbook
-          Air, with Mac OS Sierra.
-          </p>
+    <p>
+    My life as a developer is a mess: at work I have a laptop with Windows 7 and Cygwin installed; I also have a Vagrant box, running Ubuntu, that I use to do the most of my development work.  At home I have a Macbook Air, with Mac OS Sierra.
+    </p>
 
-          <p>
-          You can easily imagine how quickly I got tired of having to remember
-          which of the various <code>pbaste</code>, <code>getclip</code> et al.
-          command I should have run depending on which terminal window I had
-          opened.
-          </p>
+    <p>
+    You can easily imagine how quickly I got tired of having to remember which of the various <code>pbaste</code>, <code>getclip</code> et al.  command I should have run depending on which terminal window I had opened.
+    </p>
 
-          <p>
-          Wouldn't it be nice if I could read from the OS clipboard, or write to
-          it, using a single command line tool? And wouldn't it awesome if the same
-          tool worked on various operating systems? (at least the ones I use on
-          a daily basis)
-          </p>
+    <p>
+    Wouldn't it be nice if I could read from the OS clipboard, or write to it, using a single command line tool? And wouldn't it awesome if the same tool worked on various operating systems? (at least the ones I use on a daily basis)
+    </p>
 
-          <p>
-          <em>enters <code>cb</code>..</em>
-          </p>
+    <p>
+    <em>enters <code>cb</code>..</em>
+    </p>
 
-          <h2>Sources</h2>
-          <p>
-          Github: <a href="https://github.com/iamFIREcracker/cb">https://github.com/iamFIREcracker/cb</a>
-          </p>
-        </div>
-      </div>
-      <div id="right">
-        <div class="code">
-          <span>Write to the OS clipboard</span>
-          <pre>
-            <code>
-  &gt; echo "cb is awesome!" | cowsay | cb
-            </code>
-          </pre>
-          <span>Read from the OS clipboard</span>
-          <pre>
-            <code>
-  &gt; cb
-  ________________
-  < cb is awesome! >
-  ----------------
-          \   ^__^
-          \  (oo)\_______
-              (__)\       )\/\
-                  ||----w |
-                  ||     ||
-            </code>
-          </pre>
-          <span>It works remotely too!</span>
-          <pre>
-            <code>
-  &gt; cb --listen &amp;
-  &gt; ssh -R 5556:localhost:5556 user@remote
-  &gt; cb
-  ________________
-  < cb is awesome! >
-  ----------------
-          \   ^__^
-          \  (oo)\_______
-              (__)\       )\/\
-                  ||----w |
-                  ||     ||
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    <h2>Hands-on</h2>
+    <span>Write to the OS clipboard</span>
+    <pre>
+      <code>
+&gt; echo "cb is awesome!" | cowsay | cb
+      </code>
+    </pre>
+    <span>Read from the OS clipboard</span>
+    <pre>
+      <code>
+&gt; cb
+ ________________ 
+< cb is awesome! >
+ ---------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+      </code>
+    </pre>
+    <span>It works remotely too!</span>
+    <pre>
+      <code>
+&gt; cb --listen &amp;
+&gt; ssh -R 5556:localhost:5556 user@remote
+remote&gt; cb
+ ________________ 
+< cb is awesome! >
+ ---------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+      </code>
+    </pre>
+
+    <h2>Sources</h2>
+    <p>
+    Github: <a href="https://github.com/iamFIREcracker/cb">https://github.com/iamFIREcracker/cb</a>
+    </p>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-5007712-6']);
