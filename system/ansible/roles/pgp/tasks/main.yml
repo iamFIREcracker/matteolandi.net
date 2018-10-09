@@ -1,0 +1,12 @@
+- name: 'Creates /data/pgp directory'
+  file:
+    path: /data/pgp
+    state: directory
+    mode: 0775
+
+
+- name: 'Copies /data/pgp/404A75B6.asc'
+  copy:
+    src: 404A75B6.asc
+    dest: /data/pgp/404A75B6.asc
+    mode: 0744

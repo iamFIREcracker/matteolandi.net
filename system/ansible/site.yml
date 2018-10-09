@@ -1,6 +1,7 @@
 ---
 - include: acme.yml
+- include: plan.yml
+- include: pgp.yml
 - include: nginx.yml
 - include: matteolandi-index.yml
 - include: matteolandi-ourwedding.yml
-- include: plan.yml

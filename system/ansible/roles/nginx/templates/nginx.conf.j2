@@ -58,6 +58,13 @@ http {
             root /data/acme;
         }
 
+        location /404A75B6.asc {
+            root /data/pgp;
+            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+            add_header Content-Type text/plain;
+            expires off;
+        }
+
         location /.plan {
             root /data/plan;
             add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
