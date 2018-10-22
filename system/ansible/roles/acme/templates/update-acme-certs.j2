@@ -2,7 +2,7 @@ exec >>/data/acme/logs/update-acme-certs 2>&1
 date
 
 certbot() {
-    docker run --rm -ti \
+    docker run --rm -i \
         -v /etc/letsencrypt:/etc/letsencrypt \
         -v /data/acme:/data/acme \
         certbot/certbot:v0.25.1 \
