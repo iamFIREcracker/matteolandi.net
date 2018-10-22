@@ -32,6 +32,10 @@ Create deploy user
     #  deploy ALL=NOPASSWD: /bin/systemctl restart nginx
     #  deploy ALL=NOPASSWD: /usr/sbin/nginx
 
+Disable `requiretty` and `!visiblepw` settings from '/etc/sudoers' (like
+explained here:
+<https://unix.stackexchange.com/questions/49077/why-does-cron-silently-fail-to-run-sudo-stuff-in-my-script/49078#49078>)
+
 Bootstrap everything:
 
     cd system/ansible
