@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>cg</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link media="screen" href="style.css" type="text/css" rel="stylesheet"></link>
+    <meta name="google-site-verification" content="u-X3PZLmf0xVDH88hZU-jAyFMyw18G1HB51Dp0TCq5U"></meta>
+  </head>
+
+  <body>
+    <header>
+      <h1>cg</h1>
+      <aside>Guess commands to run from stdin, and print them to stdout.</aside>
+    </header>
+    <h2>Description</h2>
+    <p>
+    Few years ago I stumbled upon <a href="https://facebook.github.io/PathPicker">fpp</a>, a nice utility that would scan its input looking for possible pathnames, and present you with a terminal UI to select which ones to open / send to an external command; in a nut-shell, the <a href="https://github.com/sigpipe/urlview">urlview</a> for local files.
+    </p>
+
+    <p>
+    Wouldn't it be nice if there was a similar program that could guess which command to run next, by looking at its input?  For example, you pipe <code>git log -n ...</code>'s output into it, and it would output a bunch of "git show $sha1", "git show $sha2", "git show $sha3" lines (one per log entry); or you pipe into it <code>ps aux</code>'s output, and it would ask you which process to kill.
+    </p>
+
+    <p>
+    <em>enters <code>cb</code>..</em>
+    </p>
+
+    <h2>Hands-on</h2>
+    <span>Configure your <code>.cgrc</code>:</span>
+    <pre>
+      <code>
+(cg:define-guesser git-l-git-show
+    ("^([a-f0-9]{7,10}) (.*)" (commit rest))
+  (format NIL "git show '~a' # ~a" commit rest))
+      </code>
+    </pre>
+    <span>Run a command:</span>
+    <pre>
+      <code>
+&gt; git l
+224d33a Fix some copy-pasta
+6fb3f7b Add support for multi item selection
+56c332c Do not specify sbcl full path
+...
+      </code>
+    </pre>
+    <span>Pipe its output into <code>cg</code> to see command guesses...</span>
+    <pre>
+      <code>
+&gt; g l | cg
+git show '224d33a' # Fix some copy-pasta
+git show '6fb3f7b' # Add support for multi item selection
+git show '56c332c' # Do not specify sbcl full path
+...
+      </code>
+    </pre>
+    <span>...or into <code>cg-fzf</code> to be able to select and run one of the suggestions:</span>
+    <pre>
+      <code>
+&gt; g l | cg-fzf
+# you select the first suggestion
+# `bash -c "git show '224d33a' # Fix some copy-pasta"` is run
+      </code>
+    </pre>
+
+    <h2>Sources</h2>
+    <p>
+    Github: <a href="https://github.com/iamFIREcracker/cg">https://github.com/iamFIREcracker/cg</a>
+    </p>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5007712-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
