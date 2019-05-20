@@ -57,7 +57,7 @@ Build the module:
 Deploy the change:
 
     cd system/ansible
-    venv/ansible-playbook ./matteolandi-index.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    venv/bin/ansible-playbook ./matteolandi-index.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
 
 ## virtualenv
 
