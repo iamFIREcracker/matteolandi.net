@@ -27,7 +27,7 @@
 </url>
 <url>
   <loc>https://matteolandi.net/index.html</loc>
-  <lastmod>2019-05-12T18:24:02+02:00</lastmod>
+  <lastmod>2019-06-01T14:34:53+02:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -38,6 +38,11 @@
 <url>
   <loc>https://matteolandi.net/resolutions.html</loc>
   <lastmod>2018-10-07T11:33:08+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/tmux-externalpipe.html</loc>
+  <lastmod>2019-06-01T15:04:39+02:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 </urlset>
