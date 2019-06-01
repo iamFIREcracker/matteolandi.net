@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>tmux-externalpipe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link media="screen" href="style.css" type="text/css" rel="stylesheet"></link>
+    <meta name="google-site-verification" content="u-X3PZLmf0xVDH88hZU-jAyFMyw18G1HB51Dp0TCq5U"></meta>
+  </head>
+
+  <body>
+    <header>
+      <h1>tmux-externalpipe</h1>
+      <aside>Easily pipe Tmux panes content into an external program of choice.</aside>
+    </header>
+    <h2>Description</h2>
+    <p>
+    Heavily inspired by <code>st</code>'s <a href="https://st.suckless.org/patches/externalpipe/ ">externalpipe</a> patch, <code>tmux-externalpipe</code> lets you define mappings to pipe the content of the current Tmux pane into an external program of choice.
+    </p>
+
+    <p>
+    I am fond of similar plugins such as <a href="https://github.com/tmux-plugins/tmux-urlview">tmux-urlview</a> or <a href="https://github.com/tmux-plugins/tmux-fpp">tmux-fpp</a>, but when I found myself in need of creating a new one for <a href="./cg.html">cg</a> -- which, as expected, turned out being 1% custom and 99% copypasta -- I decided it was time for something more generic, and reusable.
+    </p>
+
+    <p>
+    <em>enters <code>tmux-externalpipe</code>..</em>
+    </p>
+
+    <h2>Hands-on</h2>
+    <span>Clone the repo:</span>
+    <pre>
+      <code>
+&gt; git clone https://github.com/iamFIREcracker/tmux-externalpipe ~/.tmux-plugins/tmux-externalpipe
+      </code>
+    </pre>
+    <span>Edit your <code>tmux.conf</code>:</span>
+    <pre>
+      <code>
+&gt; $EDITOR ~/.tmux.conf
+# append the following lines:
+#
+#   set -g @externalpipe-urlview-cmd 'urlview'
+#   set -g @externalpipe-urlview-key 'u'
+#   run-shell ~/.tmux-plugins/tmux-externalpipe/externalpipe.tmux
+      </code>
+    </pre>
+    <span>Reload <code>tmux</code>.. and that's it: hitting <code>prefix + u</code> should now prompt you with <code>urlview</code> link selection screen.</span>
+
+    <h2>Sources</h2>
+    <p>
+    Github: <a href="https://github.com/iamFIREcracker/tmux-externalpipe">https://github.com/iamFIREcracker/tmux-externalpipe</a>
+    </p>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5007712-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
