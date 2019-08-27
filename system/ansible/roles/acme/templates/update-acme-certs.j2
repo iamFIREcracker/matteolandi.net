@@ -12,7 +12,7 @@ certbot() {
 acme() {
     email=$1
     shift
-    site=$2
+    site=$1
     shift
     certbot certonly \
         --rsa-key-size 4096 \
@@ -24,7 +24,7 @@ acme() {
         --logs-dir /data/acme/logs \
         -w /data/acme \
         --keep-until-expiring \
-        -d matteolandi.net
+        -d $site
 }
 
 acme {{ email }} {{ server_name }}
