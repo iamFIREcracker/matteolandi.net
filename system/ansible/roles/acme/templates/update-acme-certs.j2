@@ -27,6 +27,6 @@ acme() {
         -d $site
 }
 
-acme {{ email }} {{ server_name }}
+acme {{ acme_email }} {{ server_name }}
 
 sudo nginx -s reload

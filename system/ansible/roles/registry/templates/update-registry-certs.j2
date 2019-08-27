@@ -1,0 +1,20 @@
+exec >>/data/registry/logs/update-registry-certs 2>&1
+date
+
+certs() {
+    site=$1
+    shift
+
+    echo 'Creating domain.crt'
+    cat /data/acme/config/live/$site/cert.pem /data/acme/config/live/$site/chain.pem > /data/registry/certs/domain.crt
+
+    echo 'Creating domain.key'
+    cat /data/acme/config/live/matteolandi.net/privkey.pem > /data/registry/certs/domain.key
+}
+
+certs {{ server_name }}
+
+echo 'Restarting registry'
+docker restart registry
+
+echo 'Done'

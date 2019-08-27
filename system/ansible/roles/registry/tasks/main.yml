@@ -4,6 +4,12 @@
     state: directory
     mode: 0775
 
+- name: 'Creates /data/registry/logs directory'
+  file:
+    path: /data/registry/logs
+    state: directory
+    mode: 0775
+
 - name: 'Creates /data/registry/certs directory'
   file:
     path: /data/registry/certs
@@ -16,17 +22,21 @@
     state: directory
     mode: 0775
 
-- name: 'Copies registry cert'
-  copy:
-    content: "{{ _vault_docker_registry_cert }}"
-    dest: /data/registry/certs/domain.crt
-    mode: 0644
+- name: 'Copies update-registry-certs'
+  template:
+    src: update-registry-certs.j2
+    dest: /data/registry/update-registry-certs
+    mode: 0700
 
-- name: 'Copies registry key'
-  copy:
-    content: "{{ _vault_docker_registry_key }}"
-    dest: /data/registry/certs/domain.key
-    mode: 0644
+- name: 'Executes update-registry-certs'
+  shell: /data/registry/update-registry-certs
+
+- name: 'Installs cron job for daily refresh of registry certificates'
+  cron:
+    name: 'Registry daily refresh'
+    hour: '0'
+    minute: '10'
+    job: '/data/registry/update-registry-certs'
 
 - include_role:
     name: docker-login
