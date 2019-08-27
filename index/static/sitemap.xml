@@ -1,38 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://matteolandi.net/aadbook.html</loc>
-  <lastmod>2018-10-07T10:17:28+02:00</lastmod>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://matteolandi.net/br.html</loc>
-  <lastmod>2018-10-07T10:18:18+02:00</lastmod>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://matteolandi.net/cb.html</loc>
-  <lastmod>2019-05-12T19:40:25+02:00</lastmod>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
   <loc>https://matteolandi.net/cg.html</loc>
   <lastmod>2019-05-20T23:07:38+02:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://matteolandi.net/felicemente.html</loc>
-  <lastmod>2018-10-07T10:18:58+02:00</lastmod>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://matteolandi.net/index.html</loc>
-  <lastmod>2019-06-01T14:34:53+02:00</lastmod>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://matteolandi.net/logfilter.html</loc>
-  <lastmod>2018-10-07T10:31:22+02:00</lastmod>
+  <loc>https://matteolandi.net/tmux-externalpipe.html</loc>
+  <lastmod>2019-06-01T15:04:39+02:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -41,8 +16,38 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://matteolandi.net/tmux-externalpipe.html</loc>
-  <lastmod>2019-06-01T15:04:39+02:00</lastmod>
+  <loc>https://matteolandi.net/index.html</loc>
+  <lastmod>2019-08-27T23:22:36+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/br.html</loc>
+  <lastmod>2018-10-07T10:18:18+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/logfilter.html</loc>
+  <lastmod>2018-10-07T10:31:22+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/aadbook.html</loc>
+  <lastmod>2018-10-07T10:17:28+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/felicemente.html</loc>
+  <lastmod>2018-10-07T10:18:58+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/cb.html</loc>
+  <lastmod>2019-05-12T19:40:25+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/reading.html</loc>
+  <lastmod>2019-08-27T23:45:55+02:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 </urlset>
