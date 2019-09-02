@@ -190,6 +190,10 @@ function channel_atomlink() {
   echo '<atom:link href="'$(channel_link_data)'" rel="self" type="application/rss+xml" />'
 }
 
+function channel_generator() {
+  echo '<generator>plan-rss</generator>'
+}
+
 function channel_language_data() {
   echo 'en-us'
 }
@@ -242,6 +246,7 @@ function generate() {
 $(channel_title)
 $(channel_link)
 $(channel_atomlink)
+$(channel_generator)
 $(channel_description)
 $(channel_language)
 $(channel_pubdate)
