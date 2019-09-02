@@ -50,6 +50,7 @@ http {
         listen       [::]:443 ssl;
         server_name  matteolandi.net;
         root         /usr/share/nginx/html;
+        charset      UTF-8;
 
         ssl_certificate /data/acme/config/live/matteolandi.net/fullchain.pem;
         ssl_certificate_key /data/acme/config/live/matteolandi.net/privkey.pem;
@@ -69,6 +70,12 @@ http {
             root /data/plan;
             add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
             add_header Content-Type text/plain;
+            expires off;
+        }
+
+        location /plan.xml {
+            root /data/plan;
+            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
             expires off;
         }
 
