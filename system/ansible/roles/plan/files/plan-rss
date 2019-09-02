@@ -72,6 +72,15 @@ function cdata_wrap() {
   echo "<![CDATA[$data]]>"
 }
 
+function daterfc2822() {
+  local day="$1"
+
+  # https://stackoverflow.com/a/43927574
+  if ! date -d "$day 00:00:00" -R 2>/dev/null ; then
+    date -jf '%Y-%m-%d %H:%M:%S' "$day 00:00:00" -R
+  fi
+}
+
 
 # }}}
 # Item {{{
@@ -135,7 +144,7 @@ function item_pubdate() {
   local title="$1"
   local content="$2"
 
-  echo "<pubDate>$(item_pubdate_data "$title" "$content")</pubDate>"
+  echo "<pubDate>$(daterfc2822 "$title")</pubDate>"
 }
 
 function item_guid_data() {
