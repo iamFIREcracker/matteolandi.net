@@ -53,17 +53,17 @@ function read_until_dayheader() {
   fi
 }
 
-function nl_to_br() {
-  local data="$1"
-
-  echo "$data" | sed 's/$/<br>\r/g'
-}
-
 function xmlescape() {
   local data="$1"
 
   # https://stackoverflow.com/a/12873723
   echo "$data" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g'
+}
+
+function pre_wrap() {
+  local data="$1"
+
+  echo "<pre>$data</pre>"
 }
 
 function cdata_wrap() {
@@ -99,7 +99,7 @@ function item_description() {
 
   data=$(item_description_data)
   data=$(xmlescape "$data")
-  data=$(nl_to_br "$data")
+  data=$(pre_wrap "$data")
   data=$(cdata_wrap "$data")
 
   echo "<description>$data</description>"
