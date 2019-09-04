@@ -4,11 +4,29 @@
     state: directory
     mode: 0775
 
+- name: 'Creates /data/nginx/logs directory'
+  file:
+    path: /data/nginx/logs
+    state: directory
+    mode: 0775
+
 - name: 'Creates /data/nginx/downloads directory'
   file:
     path: /data/nginx/downloads
     state: directory
     mode: 0775
+
+- name: 'Creates /data/nginx/static directory'
+  file:
+    path: /data/nginx/static
+    state: directory
+    mode: 0775
+
+- name: 'Copies /data/nginx/update-avatar'
+  copy:
+    src: update-avatar
+    dest: /data/nginx/update-avatar
+    mode: 0700
 
 - name: 'Copy nginx.conf'
   template:
@@ -17,3 +35,13 @@
 
 - name: 'Reload nginx'
   shell: 'sudo nginx -s reload'
+
+- name: 'Installs cron job for daily refresh of avatar file'
+  cron:
+    name: 'avatar daily refresh'
+    hour: '0'
+    minute: '16'
+    job: '/data/nginx/update-avatar'
+# Execute this only if avatar not present
+- name: 'Executes update-avatar'
+  shell: /data/nginx/update-avatar

@@ -91,6 +91,11 @@ http {
             root      /data/nginx;
         }
 
+        location /static {
+            sendfile  on;
+            root      /data/nginx;
+        }
+
         location /ourwedding {
             rewrite ^([^.]*[^/])$ $1/ permanent;
             proxy_set_header X-Forwarded-Host $host;

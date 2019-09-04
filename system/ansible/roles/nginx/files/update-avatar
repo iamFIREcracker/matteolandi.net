@@ -1,0 +1,4 @@
+exec >>/data/nginx/logs/update-avatar 2>&1
+date
+
+curl -L -o /data/nginx/static/avatar-650.jpg https://gravatar.com/avatar/17a9b57330a3c7c0bea8ad131e4e380c?s=650
