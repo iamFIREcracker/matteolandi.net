@@ -1,4 +1,4 @@
-exec >>/data/plan/logs/update-plan-rss 2>&1
+exec >>/data/plan/logs/update-plan-xml 2>&1
 date
 
 cd /data/plan/rss

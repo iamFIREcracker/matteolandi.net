@@ -28,10 +28,10 @@
     dest: /data/plan/update-plan
     mode: 0700
 
-- name: 'Copies /data/plan/update-plan-rss'
+- name: 'Copies /data/plan/update-plan-xml'
   copy:
-    src: update-plan-rss
-    dest: /data/plan/update-plan-rss
+    src: update-plan-xml
+    dest: /data/plan/update-plan-xml
     mode: 0700
 
 - name: 'Installs cron job for daily refresh of plan file'
@@ -49,7 +49,7 @@
     name: '.plan daily refresh'
     hour: '0'
     minute: '16'
-    job: '/data/plan/update-plan-rss'
+    job: '/data/plan/update-plan-xml'
 # Execute this only if plan.xml not present
-- name: 'Executes update-plan-rss'
-  shell: /data/plan/update-plan-rss
+- name: 'Executes update-plan-xml'
+  shell: /data/plan/update-plan-xml
