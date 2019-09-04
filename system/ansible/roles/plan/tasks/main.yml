@@ -4,7 +4,6 @@
     state: directory
     mode: 0775
 
-
 - name: 'Creates /data/plan/logs directory'
   file:
     path: /data/plan/logs
@@ -34,13 +33,6 @@
     src: update-plan-rss
     dest: /data/plan/update-plan-rss
     mode: 0700
-# Execute this only if plan not present
-- name: 'Executes update-plan'
-  shell: /data/plan/update-plan
-
-# Execute this only if plan.xml not present
-- name: 'Executes update-plan-rss'
-  shell: /data/plan/update-plan-rss
 
 - name: 'Installs cron job for daily refresh of plan file'
   cron:
@@ -48,6 +40,9 @@
     hour: '0'
     minute: '15'
     job: '/data/plan/update-plan'
+# Execute this only if plan not present
+- name: 'Executes update-plan'
+  shell: /data/plan/update-plan
 
 - name: 'Installs cron job for daily refresh of plan file'
   cron:
@@ -55,3 +50,6 @@
     hour: '0'
     minute: '16'
     job: '/data/plan/update-plan-rss'
+# Execute this only if plan.xml not present
+- name: 'Executes update-plan-rss'
+  shell: /data/plan/update-plan-rss
