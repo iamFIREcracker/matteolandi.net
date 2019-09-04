@@ -1,0 +1,5 @@
+exec >>/data/plan/logs/update-plan-rss 2>&1
+date
+
+cd /data/plan/rss
+cat ../.plan | ../plan-rss > ../plan.xml
