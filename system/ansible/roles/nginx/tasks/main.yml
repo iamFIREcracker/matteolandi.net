@@ -40,7 +40,7 @@
   cron:
     name: 'avatar daily refresh'
     hour: '0'
-    minute: '16'
+    minute: '10'
     job: '/data/nginx/update-avatar'
 # Execute this only if avatar not present
 - name: 'Executes update-avatar'

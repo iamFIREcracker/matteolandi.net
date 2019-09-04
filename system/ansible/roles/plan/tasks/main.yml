@@ -37,8 +37,8 @@
 - name: 'Installs cron job for daily refresh of plan file'
   cron:
     name: '.plan daily refresh'
-    hour: '0'
-    minute: '15'
+    hour: '3'
+    minute: '0'
     job: '/data/plan/update-plan'
 # Execute this only if plan not present
 - name: 'Executes update-plan'
@@ -47,8 +47,8 @@
 - name: 'Installs cron job for daily refresh of plan file'
   cron:
     name: '.plan daily refresh'
-    hour: '0'
-    minute: '16'
+    hour: '3'
+    minute: '5'
     job: '/data/plan/update-plan-xml'
 # Execute this only if plan.xml not present
 - name: 'Executes update-plan-xml'
