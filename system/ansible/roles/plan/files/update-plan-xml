@@ -1,5 +1,6 @@
 exec >>/data/plan/logs/update-plan-xml 2>&1
 date
 
+cd /data/plan # Move here, so plan-rss cache is stored inside /data
 cat /data/plan/.plan | /data/plan/plan-rss > /data/plan/plan.xml
 head -30 /data/plan/plan.xml

@@ -267,6 +267,7 @@ $(channel_generator)
 $(channel_description)
 $(channel_language)
 $(channel_pubdate)
+$(channel_image)
 EOF
   channel_items 10 # break the previous `cat' so we can start emitting data early
   cat <<EOF
