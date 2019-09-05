@@ -208,7 +208,7 @@ function channel_atomlink() {
 }
 
 function channel_generator() {
-  echo '<generator>plan-rss</generator>'
+  echo "<generator>plan-rss $VERSION</generator>"
 }
 
 function channel_language_data() {
