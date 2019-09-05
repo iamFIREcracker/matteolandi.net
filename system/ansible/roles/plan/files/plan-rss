@@ -127,7 +127,7 @@ function item_pubdate_data() {
   local title="$1"
   local content="$2"
 
-  local cachedir="$PWD/item-$title"
+  local cachedir="$PWD/.plan-rss-cache/item-$title"
   local cachedcontentfile="$cachedir/content"
   local cacheddatefile="$cachedir/date"
   mkdir -p $cachedir
@@ -190,14 +190,17 @@ function channel_title() {
 }
 
 function channel_link_data() {
-  echo 'https://matteolandi.net/plan.xml'
+  echo 'https://matteolandi.net/.plan'
 }
 function channel_link() {
   echo "<link>$(channel_link_data)</link>"
 }
 
+function channel_atomlink_data() {
+  echo 'https://matteolandi.net/plan.xml'
+}
 function channel_atomlink() {
-  echo '<atom:link href="'$(channel_link_data)'" rel="self" type="application/rss+xml" />'
+  echo '<atom:link href="'$(channel_atomlink_data)'" rel="self" type="application/rss+xml" />'
 }
 
 function channel_generator() {

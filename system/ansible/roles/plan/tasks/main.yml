@@ -10,22 +10,16 @@
     state: directory
     mode: 0775
 
-- name: 'Creates /data/plan/rss directory'
-  file:
-    path: /data/plan/rss
-    state: directory
-    mode: 0775
-
 - name: 'Copies /data/plan/plan-rss'
   copy:
     src: plan-rss
     dest: /data/plan/plan-rss
     mode: 0700
 
-- name: 'Copies /data/plan/update-plan'
+- name: 'Copies /data/plan/update-dot-plan'
   copy:
-    src: update-plan
-    dest: /data/plan/update-plan
+    src: update-dot-plan
+    dest: /data/plan/update-dot-plan
     mode: 0700
 
 - name: 'Copies /data/plan/update-plan-xml'
@@ -39,10 +33,10 @@
     name: '.plan daily refresh'
     hour: '3'
     minute: '0'
-    job: '/data/plan/update-plan'
+    job: '/data/plan/update-dot-plan'
 # Execute this only if plan not present
-- name: 'Executes update-plan'
-  shell: /data/plan/update-plan
+- name: 'Executes update-dot-plan'
+  shell: /data/plan/update-dot-plan
 
 - name: 'Installs cron job for daily refresh of plan file'
   cron:
