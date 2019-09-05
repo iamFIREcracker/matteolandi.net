@@ -126,6 +126,7 @@ EOF
 function item_pubdate_data() {
   local title="$1"
   local content="$2"
+  local entrydate="$(daterfc2822 "$title")"
 
   local cachedir="$PWD/.plan-rss-cache/item-$title"
   local cachedcontentfile="$cachedir/content"
@@ -133,19 +134,22 @@ function item_pubdate_data() {
   mkdir -p $cachedir
   touch $cachedcontentfile $cacheddatefile
 
-  if [ "$content" = "$(read_from "$cachedcontentfile")" ]; then
-    read_from "$cacheddatefile"
+  if [ -z "$(read_from "$cacheddatefile")" ]; then
+    # First time we encounter this entry -- use entry date
+    :
+  elif [ "$content" != "$(read_from "$cachedcontentfile")" ]; then
+    # The entry was edited since the last time the script run -- use $NOW
+    entrydate="$NOW"
   else
-    echo "$content" > "$cachedcontentfile"
-    echo $NOW > "$cacheddatefile"
-    echo $NOW
+    # Nothing changed -- use last pub date
+    entrydate="$(read_from "$cacheddatefile")"
   fi
+  echo "$entrydate"
+  echo "$entrydate" > "$cacheddatefile"
+  echo "$content" > "$cachedcontentfile"
 }
 function item_pubdate() {
-  local title="$1"
-  local content="$2"
-
-  echo "<pubDate>$(daterfc2822 "$title")</pubDate>"
+  echo "<pubDate>$(item_pubdate_data "$@")</pubDate>"
 }
 
 function item_guid_data() {
