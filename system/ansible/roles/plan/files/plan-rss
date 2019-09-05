@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=0.0.3
+VERSION=0.0.5
 NOW=$(date -R)
 
 # Input stream {{{
@@ -155,7 +155,7 @@ function item_pubdate() {
 function item_guid_data() {
   local content="$1"
 
-  echo -n "$content -- $VERSION" | sha512sum | cut -d' ' -f1
+  echo -n "$content" | sha512sum | cut -d' ' -f1
 }
 function item_guid() {
   local content="$1"
