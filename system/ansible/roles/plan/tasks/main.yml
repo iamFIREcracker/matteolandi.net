@@ -28,22 +28,24 @@
     dest: /data/plan/update-plan-xml
     mode: 0700
 
-- name: 'Installs cron job for daily refresh of plan file'
+- name: 'Installs cron job for daily refresh of .plan file'
   cron:
     name: '.plan daily refresh'
     hour: '3'
     minute: '0'
     job: '/data/plan/update-dot-plan'
-# Execute this only if plan not present
 - name: 'Executes update-dot-plan'
   shell: /data/plan/update-dot-plan
+  args:
+    creates: /data/plan/.plan
 
-- name: 'Installs cron job for daily refresh of plan file'
+- name: 'Installs cron job for daily refresh of plan.xml file'
   cron:
-    name: '.plan daily refresh'
+    name: 'plan.ml daily refresh'
     hour: '3'
     minute: '5'
     job: '/data/plan/update-plan-xml'
-# Execute this only if plan.xml not present
 - name: 'Executes update-plan-xml'
   shell: /data/plan/update-plan-xml
+  args:
+    creates: /data/plan/plan.xml

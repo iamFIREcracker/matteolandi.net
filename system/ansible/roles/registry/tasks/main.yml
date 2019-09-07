@@ -28,15 +28,16 @@
     dest: /data/registry/update-registry-certs
     mode: 0700
 
-- name: 'Executes update-registry-certs'
-  shell: /data/registry/update-registry-certs
-
 - name: 'Installs cron job for daily refresh of registry certificates'
   cron:
     name: 'Registry daily refresh'
     hour: '0'
     minute: '5'
     job: '/data/registry/update-registry-certs'
+- name: 'Executes update-registry-certs'
+  shell: /data/registry/update-registry-certs
+  args:
+    creates: /data/registry/certs/domain.key
 
 - include_role:
     name: docker-login

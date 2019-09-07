@@ -39,9 +39,11 @@
 - name: 'Installs cron job for daily refresh of avatar file'
   cron:
     name: 'avatar daily refresh'
-    hour: '0'
+    hour: '3'
     minute: '10'
+    weekday: '0'
     job: '/data/nginx/update-avatar'
-# Execute this only if avatar not present
 - name: 'Executes update-avatar'
   shell: /data/nginx/update-avatar
+  args:
+    creates: /data/nginx/static/avatar-650.jpg
