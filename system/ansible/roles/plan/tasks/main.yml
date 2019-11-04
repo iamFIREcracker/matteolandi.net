@@ -10,10 +10,10 @@
     state: directory
     mode: 0775
 
-- name: 'Copies /data/plan/plan-rss'
+- name: 'Copies /data/plan/download-plan-rss'
   copy:
-    src: plan-rss
-    dest: /data/plan/plan-rss
+    src: download-plan-rss
+    dest: /data/plan/download-plan-rss
     mode: 0700
 
 - name: 'Copies /data/plan/update-dot-plan'
@@ -28,22 +28,38 @@
     dest: /data/plan/update-plan-xml
     mode: 0700
 
+- name: 'Installs cron job for daily download of plan-rss'
+  cron:
+    name: 'plan-rss daily refresh'
+    hour: '3'
+    minute: '0'
+    job: '/data/plan/download-plan-rss'
+- name: 'Executes download-plan-rss'
+  shell: /data/plan/download-plan-rss
+  args:
+    creates: /data/plan/plan-rss
+
 - name: 'Installs cron job for daily refresh of .plan file'
   cron:
     name: '.plan daily refresh'
     hour: '3'
-    minute: '0'
+    minute: '5'
     job: '/data/plan/update-dot-plan'
 - name: 'Executes update-dot-plan'
   shell: /data/plan/update-dot-plan
   args:
     creates: /data/plan/.plan
 
-- name: 'Installs cron job for daily refresh of plan.xml file'
+- name: 'Uninstall old cron job for daily refresh of plan.xml file'
   cron:
     name: 'plan.ml daily refresh'
+    state: absent
+
+- name: 'Installs cron job for daily refresh of plan.xml file'
+  cron:
+    name: 'plan.xml daily refresh'
     hour: '3'
-    minute: '5'
+    minute: '10'
     job: '/data/plan/update-plan-xml'
 - name: 'Executes update-plan-xml'
   shell: /data/plan/update-plan-xml

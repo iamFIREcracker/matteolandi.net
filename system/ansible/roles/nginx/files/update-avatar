@@ -3,7 +3,10 @@ date
 
 download() {
   size=$1
+  echo Creating avatar-$1.jpg
   curl -L -o /data/nginx/static/avatar-$1.jpg https://gravatar.com/avatar/17a9b57330a3c7c0bea8ad131e4e380c?s=$1
+  echo done
 }
 
 download 650
+download 144

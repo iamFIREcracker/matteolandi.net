@@ -1,0 +1,16 @@
+exec >>/data/plan/logs/download-plan-rss 2>&1
+date
+
+download() {
+  bin_remote=$1
+  bin_local=$2
+  curl --silent https://api.github.com/repos/iamFIREcracker/plan-rss/releases/latest \
+        | grep "browser_download_url.*$bin_remote" \
+        | cut -d : -f 2,3 \
+        | tr -d \" \
+        | xargs -I {} curl --location {} --output $bin_local
+  chmod +x $bin_local
+  $bin_local --version
+}
+
+download plan-rss-linux /data/plan/plan-rss

@@ -1,6 +1,25 @@
 exec >>/data/plan/logs/update-plan-xml 2>&1
 date
 
-cd /data/plan # Move here, so plan-rss cache is stored inside /data
-cat /data/plan/.plan | /data/plan/plan-rss > /data/plan/plan.xml
-head -30 /data/plan/plan.xml
+update() {
+    input=$1
+    output=$2
+    title=$3
+    link=$4
+    self=$5
+
+    /data/plan/plan-rss \
+          --title "$title" \
+          --link "$link" \
+          --atom-link-self "$self" \
+    < "$input" > "$output"
+
+    head -30 "$output"
+}
+
+update \
+    /data/plan/.plan \
+    /data/plan/plan.xml \
+    "Matteo Landi's log" \
+    "https://matteolandi.net/.plan" \
+    "https://matteolandi.net/plan.xml"
