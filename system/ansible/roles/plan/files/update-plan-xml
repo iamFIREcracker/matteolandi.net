@@ -20,6 +20,6 @@ update() {
 update \
     /data/plan/.plan \
     /data/plan/plan.xml \
-    "Matteo Landi's log" \
+    "Matteo Landi's .plan file" \
     "https://matteolandi.net/.plan" \
     "https://matteolandi.net/plan.xml"
