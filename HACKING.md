@@ -67,5 +67,5 @@ In order for the previous command to work, you have to create a 'venv'
 _virtualenv_ inside system/ansible first:
 
     cd system/ansible
-    virtualenv venv
-    pip install -r requirements.txt
+    virtualenv venv --python=python3
+    venv/bin/pip install -r requirements.txt
