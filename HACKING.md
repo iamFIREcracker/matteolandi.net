@@ -61,6 +61,11 @@ Deploy the change:
     cd system/ansible
     venv/bin/ansible-playbook ./matteolandi-index.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
 
+Clean up, and go back home:
+
+    docker-machine stop dev
+    cd -
+
 ## virtualenv
 
 In order for the previous command to work, you have to create a 'venv'
