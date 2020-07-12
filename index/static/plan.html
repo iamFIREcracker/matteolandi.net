@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>.plan files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="u-X3PZLmf0xVDH88hZU-jAyFMyw18G1HB51Dp0TCq5U">
+    <link media="screen" href="style.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1>.plan files</h1>
+      <aside>A couple of years ago I was reading <a
+          href="https://www.amazon.com/Masters-Doom-Created-Transformed-Culture/dp/0812972155"
+          title="Amazon link to Masters of Doom">Masters of Doom</a>, and
+        something that really struck me was how programmer John
+        Carmack used to keep track of his daily work: <code>.plan</code> files.
+        Now, there are a lot of resources online covering what
+        <code>.plan</code> files are, how to <a
+          href="https://en.wikipedia.org/wiki/Finger_protocol"
+          title="Wikipedia page about the finger protocol">access them</a>, or
+        even <a href="https://garbagecollected.org/2017/10/24/the-carmack-plan/"
+          title="Article about John Carmack's .plan">what John Carmack's
+          .plan file looked like</a>, so I am not going to talk about that; what
+        I am going to talk about is how I started using <code>.plan</code> files
+        and the workflow that I have developed around them.  Before that though,
+        let me first spend a few words on the reasons why I think people should
+        start using <code>.plan</code> files again (or at least, similar
+        solutions).</aside>
+    </header>
+
+    <h2>Why</h2>
+
+    <p>First things first, it's simple: a plaintext file, few syntax rules,
+    public availability, and that's it.</p>
+
+    <p>Second, keeping my <code>.plan</code> file up to date helps me staying
+    <em>organized</em>.  Did you bump into something you want to fix, but
+    don't have the time to do it now?  Add an entry for it.  Did you find an
+    interesting article to read...<em>later</em>?  Add it to your
+    <code>.plan</code> file.  Did you spend a lot of time debugging a problem?
+    Write about it, so that you can come back to it later, should something
+    similar happen again.  It's like your digital, personal
+    <em>journal</em>.</p>
+
+    <p>Lastly, keeping up with your <code>.plan</code> file is going to help
+    improving your technical writing skills, and especially if you work in the
+    same industry as I do, you know how important that is (e.g. document things,
+    file clear and descriptive bug reports, or describe solutions to technical
+    challenges).</p>
+
+    <h2>Format</h2>
+
+    <p>The format of my <code>.plan</code> files is pretty basic: mostly
+    based on John Carmack's early <code>.plan</code> files, with just a bit of
+    <a href="https://daringfireball.net/projects/markdown/" title="Original
+      Markdown specification">Markdown</a> flavour in it.</p>
+
+    <p>Usually the first few lines of all my <code>.plan</code> files will tell
+    you <em>what</em> the file is about, and give a bit of an overview of
+    <em>how</em> the file itself is structured.  For example:</p>
+
+    <pre><code>This is my .plan file ...
+
+When I accomplish something, I write a * line on that day.  Whenever a bug / missing feature / idea is mentioned during the day and I don't fix it, I make a note of it and mark it with ?.  Some things get noted many times before they get fixed.  Occasionally I go back through the old notes and mark with a + the things I have since fixed, and with a ~ the things I have since lost interest in.
+
+Sometimes I rant about broken things (mostly, computer related), and how I go about and (try to) fix them.
+
+--- Matteo Landi</code></pre>
+
+    <p>The careful reader might notice that this welcome message is very similar
+    (90% similar) to what John Carmack had in his <code>.plan</code> file back
+    in the 90s; just a few tweaks , to make the file a bit more Markdown
+    friendly (<code>~</code> instead of <code>-</code> for things that I have no
+    more interest in, or prefixing my todos with <code>?</code>).  I don't
+    explicitly tell how <em>day entries</em> are implemented but at least the
+    reader knows there will be some (and it should be pretty straightforward to
+    understand the structure, once they go through the file).</p>
+
+    <p>Speaking of <em>day entries</em>, in my <code>.plan</code> those are
+    implemented as Markdown's sections headers (with the specific date in
+    it), and anything that happened on that day will go right below it:</p>
+
+    <pre><code># 2020-05-12
+Did a little bit of debugging as to why **all** my Common Lisp Windows executables were not printing things out on the stdout as expected, and it seems to have something to do with redirection...
+...
+
+# 2020-05-16
+Alright, I think I figured out what I had to do in order to get my CL programs, on Window, to properly output stuff to stdout.  It turns out you have to explicitly tell deploy[1], the system I use do deploy standalone CL applications, that you want your Windows application to be a _console_ application, or otherwise deploy will go with a GUI application (and GUI applications that don't usually get a standard output to write to).
+...</code></pre>
+
+    <p>And if for a given day entry I end up writing about completely unrelated
+    topics, I would simply stick a <code>---</code> separator in between, and
+    create two or more <em>sub-entries</em>:</p>
+
+    <pre><code># 2020-05-16
+Alright, I think I figured out what I had to do in order to get my CL programs, on Window, to properly output stuff to stdout.  It turns out you have to explicitly tell deploy[1], the system I use do deploy standalone CL applications, that you want your Windows application to be a _console_ application, or otherwise deploy will go with a GUI application (and GUI applications that don't usually get a standard output to write to).
+
+[1] https://github.com/Shinmera/deploy
+
+---
+
+Run into another problem with Travis-CI the other day; when deploying artifacts to GitHub, it would error out with the following message:
+
+    /home/travis/.travis/functions: eval: line 109: unexpected EOF while looking for matching ``'
+    /home/travis/.travis/functions: eval: line 110: syntax error: unexpected end of file
+...</code></pre>
+
+    <p>And that's pretty much all you need to know to <em>process</em> my
+    <code>.plan</code> file; knowing a little bit of Markdown would not hurt
+    (e.g. emphasis, strong, code, links), but Markdown is simple enough that you
+    can figure things out as you read it.</p>
+
+    <h2>Personal setup</h2>
+
+    <p>I don't have a single <code>.plan</code> file, but multiple of them.  My
+    <em>personal</em> one for example (also publicly available <a href="./.plan"
+      title="My personal .plan file">here</a>), is where I write about things
+    that I have to get done (or have already gotten done), projects I started
+    working on, ideas, or computer-related problems I am dealing with (and their
+    solutions once I figure them out).  Then I have another <code>.plan</code>
+    file that I use at work: very similar to my personal one, but all about
+    work-related stuff.  At work, I also keep different <code>.plan</code> files
+    one per each person working in my team and reporting to me, and mostly use these
+    for 1-1s minutes, or for big achievements / projects that these people
+    completed throughout the years.</p>
+
+    <p>All my <code>.plan</code> files live in Dropbox, and since I have Dropbox
+    installed on all the PCs I care about (even on my mobile phone), I can edit
+    all my <code>.plan</code> files from everywhere.  Of course you don't have
+    to use Dropbox, but I just find it too convenient for <em>not</em> using it:
+    edit your <code>.plan</code> file while on the go, hit save, and when you
+    get back to your PC the added content will be there; or the other way
+    around, you shut down your PC, hop on a train, you open Dropbox on your
+    mobile, and a few seconds later you can continue working from where you left
+    off before.  Of course I don't have this urge of editing my
+    <code>.plan</code> file every time I am on the go, but if I have to, I can
+    do it.</p>
+
+    <p>Talking about editing <code>.plan</code> files... I use Vim as text
+    editor, and if you do too here are a few tips / hacks to make
+    "<code>.plan</code> files editing", even more enjoyable:</p>
+
+    <ul>
+      <li>A <a
+        href="https://github.com/iamFIREcracker/dotfiles/blob/master/.vim/syntax/plan.vim"
+        title="Vim syntax file for .plan files">syntax</a> file to color basic
+      things like day entries, todos, emphasis, strong, links, and code (to be
+      placed at <code>~/.vim/syntax/plan.vim</code>)</li>
+      <li>A <a
+        href="https://github.com/iamFIREcracker/dotfiles/blob/master/.vim/ftplugin/plan/folding.vim"
+        title="Vim folding file for .plan files">folding</a> file to create
+      folds for day entries (to be placed at
+      <code>~/.vim/ftplugin/plan/folding.vim</code>)</li>
+      <li>An <code>autocmd</code> group to create mappings for creating new day
+      entries without specifying the current date, or to automatically populate
+      the <code>quickfix</code> with all the todos listed in the
+      <code>.plan</code> file being edited:
+
+        <pre><code>augroup ft_plan
+    au!
+
+    au FileType plan setlocal wrap textwidth=0
+    au FileType plan nnoremap &lt;localleader&gt;n Go&lt;cr&gt;# &lt;C-R&gt;=strftime("%Y-%m-%d")&lt;CR&gt;&lt;CR&gt;&lt;BS&gt;&lt;BS&gt;
+    au FileType plan nnoremap &lt;localleader&gt;o :silent lgrep '^\?' %&lt;cr&gt;:lopen&lt;cr&gt;:redraw!&lt;cr&gt;
+augroup END</code></pre>
+      </li>
+    </ul>
+
+    <p>Lastly, I have a <code>cron(8)</code> job on my server, that every night
+    downloads my <code>.plan</code> and places it into a specific folder so that
+    my web server can <em>serve</em> it.  I also wrote a small program, <a
+      href="https://github.com/iamFIREcracker/plan-rss" title="GitHub page of
+      plan-rss, a .plan file to RSS feed converter">plan-rss</a>, that my server
+    automatically runs to create a <a href="https://en.wikipedia.org/wiki/RSS"
+    title="Wikipedia page about RSS">RSS</a> feed of all the most recent
+    day entries of my <code>.plan</code> file (it's not perfect, but if you are
+    looking for a way to stay up to date with my <code>.plan</code> file, then
+    subscribing to my <a type="application/rss+xml" href="./plan.xml" title="My
+      personal .plan file, as a RSS feed feed">plan.xml</a> is probably your
+    best bet).</p>
+
+    <h2>Closing thoughts</h2>
+
+    <p>That's pretty much all I had to say about <code>.plan</code> files, and
+    if anything, I hope I made you at least a little bit curious about the
+    idea behind them.</p>
+
+    <p>Remember: it does not matter which syntax rules you end up using, which
+    editor you will be typing these notes in, or which mark-up language rules
+    you will ultimately end up supporting.  What really matters is that you
+    start writing, and start taking notes... and more importantly, that you do
+    this <em>consistently</em>: the more you do it, the more natural it will
+    feel, and the more <em>weird</em> it will feel to get at the end of the day,
+    after having spent so many hours in front of your PC, without having
+    created an entry in your <code>.plan</code> file.</p>
+
+    <p>Happy <code>.plan</code>-ing</p>
+
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5007712-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

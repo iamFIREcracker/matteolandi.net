@@ -17,7 +17,7 @@
 </url>
 <url>
   <loc>https://matteolandi.net/index.html</loc>
-  <lastmod>2020-03-22T10:21:59+01:00</lastmod>
+  <lastmod>2020-07-02T11:01:58+02:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -47,7 +47,12 @@
 </url>
 <url>
   <loc>https://matteolandi.net/reading.html</loc>
-  <lastmod>2020-03-15T15:51:08+01:00</lastmod>
+  <lastmod>2020-07-12T12:37:55+02:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/plan.html</loc>
+  <lastmod>2020-05-19T20:16:22+02:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 </urlset>
