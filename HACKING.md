@@ -41,16 +41,10 @@ explained here:
 Bootstrap everything:
 
     cd system/ansible
-    ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
-    ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
+    venv/bin/ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
+    venv/bin/ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
 
 # build a module
-
-Log into the remote docker registry:
-
-    docker-machine start dev
-    eval $(docker-machine env dev)
-    docker login -u deploy -p $(keyring get docker.matteolandi.net deploy) matteolandi.net:5000
 
 Build the module:
 
@@ -63,7 +57,6 @@ Deploy the change:
 
 Clean up, and go back home:
 
-    docker-machine stop dev
     cd -
 
 ## virtualenv
@@ -72,5 +65,13 @@ In order for the previous command to work, you have to create a 'venv'
 _virtualenv_ inside system/ansible first:
 
     cd system/ansible
-    virtualenv venv --python=python3
-    venv/bin/pip install -r requirements.txt
+    python3.8 -m virtualenv venv
+    vpip install -r requirements.txt
+
+### re-create the virtualenv
+
+    cd system/ansible
+    rm -rf venv
+    python3.8 -m virtualenv venv
+    vpip install ansible==2.9.10
+    vpip freeze > requirements.txt
