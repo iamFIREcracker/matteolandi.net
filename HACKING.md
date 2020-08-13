@@ -41,8 +41,8 @@ explained here:
 Bootstrap everything:
 
     cd system/ansible
-    venv/bin/ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
-    venv/bin/ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv¬
+    venv/bin/ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    venv/bin/ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
 
 # build a module
 

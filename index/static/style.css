@@ -19,6 +19,9 @@ pre {
   margin: 0;
   line-height: normal;
   white-space: pre-wrap;
+}
+
+pre, code {
   font-size: 1rem;
 }
 
