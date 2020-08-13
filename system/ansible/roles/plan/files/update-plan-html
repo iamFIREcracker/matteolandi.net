@@ -15,5 +15,5 @@ update() {
 
 update \
     /data/plan/.plan \
-    /data/plan/plan.xml \
-    /data/plan/template-xml.djxml
+    /data/plan/plan.html \
+    /data/plan/template-html.djhtml

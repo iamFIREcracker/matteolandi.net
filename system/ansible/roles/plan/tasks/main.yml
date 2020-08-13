@@ -10,10 +10,27 @@
     state: directory
     mode: 0775
 
-- name: 'Copies /data/plan/download-plan-rss'
+- name: 'Removes /data/plan/download-plan-rss'
+  file:
+    path: /data/plan/download-plan-rss
+    state: absent
+
+- name: 'Copies /data/plan/template-html.djhtml'
   copy:
-    src: download-plan-rss
-    dest: /data/plan/download-plan-rss
+    src: template-html.djhtml
+    dest: /data/plan/template-html.djhtml
+    mode: 0700
+
+- name: 'Copies /data/plan/template-xml.djxml'
+  copy:
+    src: template-xml.djxml
+    dest: /data/plan/template-xml.djxml
+    mode: 0700
+
+- name: 'Copies /data/plan/download-plan-convert'
+  copy:
+    src: download-plan-convert
+    dest: /data/plan/download-plan-convert
     mode: 0700
 
 - name: 'Copies /data/plan/update-dot-plan'
@@ -28,16 +45,27 @@
     dest: /data/plan/update-plan-xml
     mode: 0700
 
-- name: 'Installs cron job for daily download of plan-rss'
+- name: 'Copies /data/plan/update-plan-html'
+  copy:
+    src: update-plan-html
+    dest: /data/plan/update-plan-html
+    mode: 0700
+
+- name: 'Uninstalls cron job for daily download of plan-rss'
   cron:
     name: 'plan-rss daily refresh'
+    state: absent
+
+- name: 'Installs cron job for daily download of plan-convert'
+  cron:
+    name: 'plan-convert daily refresh'
     hour: '3'
     minute: '0'
-    job: '/data/plan/download-plan-rss'
-- name: 'Executes download-plan-rss'
-  shell: /data/plan/download-plan-rss
+    job: '/data/plan/download-plan-convert'
+- name: 'Executes download-plan-convert'
+  shell: /data/plan/download-plan-convert
   args:
-    creates: /data/plan/plan-rss
+    creates: /data/plan/plan-convert
 
 - name: 'Installs cron job for daily refresh of .plan file'
   cron:
@@ -50,11 +78,6 @@
   args:
     creates: /data/plan/.plan
 
-- name: 'Uninstall old cron job for daily refresh of plan.xml file'
-  cron:
-    name: 'plan.ml daily refresh'
-    state: absent
-
 - name: 'Installs cron job for daily refresh of plan.xml file'
   cron:
     name: 'plan.xml daily refresh'
@@ -65,3 +88,15 @@
   shell: /data/plan/update-plan-xml
   args:
     creates: /data/plan/plan.xml
+
+- name: 'Installs cron job for daily refresh of plan.html file'
+  cron:
+    name: 'plan.html daily refresh'
+    hour: '3'
+    minute: '15'
+    job: '/data/plan/update-plan-html'
+- name: 'Executes update-plan-html'
+  shell: /data/plan/update-plan-html
+  args:
+    creates: /data/plan/plan.html
+

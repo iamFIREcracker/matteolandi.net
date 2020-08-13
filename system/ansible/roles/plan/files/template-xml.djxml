@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Matteo Landi's .plan file</title>
+    <link>https://matteolandi.net/plan.html</link>
+    <description>{{ description }}</description>
+    <generator>plan-convert {{ version }}</generator>
+    <language>en-us</language>
+    <atom:link href="https://matteolandi.net/plan.xml" rel="self" type="application/rss+xml"/>
+    {% for day in days %}
+      <item>
+        <title>{{ day.date }}</title>
+        <link>https://matteolandi.net/plan.html#day{{ day.date }}</link>
+        <pubDate>{{ day.date | rfc2822 }}</pubDate>
+        <guid isPermaLink="false">{{ day.content | md5sum}}</guid>
+        <description>
+        <![CDATA[ <pre>{{ day.content }}</pre> ]]>
+        </description>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

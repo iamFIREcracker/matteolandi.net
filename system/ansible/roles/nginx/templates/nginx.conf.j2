@@ -73,6 +73,12 @@ http {
             expires off;
         }
 
+        location /plan.html {
+            root /data/plan;
+            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+            expires off;
+        }
+
         location /plan.xml {
             root /data/plan;
             add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';

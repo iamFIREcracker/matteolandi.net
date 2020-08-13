@@ -1,10 +1,10 @@
-exec >>/data/plan/logs/download-plan-rss 2>&1
+exec >>/data/plan/logs/download-plan-convert 2>&1
 date
 
 download() {
   bin_remote=$1
   bin_local=$2
-  curl --silent https://api.github.com/repos/iamFIREcracker/plan-rss/releases/latest \
+  curl --silent https://api.github.com/repos/iamFIREcracker/plan-convert/releases/latest \
         | grep "browser_download_url.*$bin_remote" \
         | cut -d : -f 2,3 \
         | tr -d \" \
@@ -13,4 +13,4 @@ download() {
   $bin_local --version
 }
 
-download plan-rss-linux /data/plan/plan-rss
+download plan-convert-linux /data/plan/plan-convert
