@@ -1,0 +1,29 @@
+.entry__title {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eaecef;
+}
+
+.description pre,
+.content--generic pre {
+  font-size: inherit;
+  font-family: initial;
+  white-space: pre-wrap;
+}
+
+.content--generic,
+.content--verbatim {
+  margin: 2rem 0;
+}
+
+.content--completed::before,
+.content--completed-later::before {
+  content: '☑';
+}
+
+.content--idea::before {
+  content: '☐';
+}
+
+.--hidden {
+  display: none;
+}

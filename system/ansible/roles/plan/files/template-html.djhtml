@@ -6,20 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="u-X3PZLmf0xVDH88hZU-jAyFMyw18G1HB51Dp0TCq5U">
     <link media="screen" href="style.css" type="text/css" rel="stylesheet">
+    <link media="screen" href="style-plan.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="RSS feed" href="plan.xml" />
   </head>
 
   <body>
     <header>
       <h1>.plan</h1>
       <aside>
-        <pre>{{ description }}</pre>
+        <div class="description"><em><pre>{{ description }}</pre></em></div>
       </aside>
     </header>
 
     {% for day in days %}
-      <article>
-        <h2 id="day-{{ day.date }}">{{ day.date }} <a href="#day-{{ day.date }}"><small>(permalink)</small></a></h2>
-        <pre>{{ day.content }}</pre>
+      <article class="entry">
+        <h2 id="day-{{ day.date }}" class="entry__title">{{ day.date }} <a href="#day-{{ day.date }}"><small>(permalink)</small></a></h2>
+        {% for section in day.sections %}
+          <div class="entry__section">
+            {% if not forloop.first %}
+              <hr>
+            {% endif %}
+            {% for line in section %}
+              {% ifequal line.type accomplished %}
+                <p class="content--completed"><span class="--hidden">*</span> {{ line.content }}</p>
+              {% endifequal %}
+              {% ifequal line.type fixed %}
+                <p class="content--completed-later"><span class="--hidden">+</span> {{ line.content }}</p>
+              {% endifequal %}
+              {% ifequal line.type idea %}
+                <p class="content--idea"><span class="--hidden">?</span> {{ line.content }}</p>
+              {% endifequal %}
+              {% ifequal line.type discarded %}
+              <p class="content--discarded"><del><span class="--hidden">~</span> {{ line.content }}</del></p>
+              {% endifequal %}
+              {% ifequal line.type snippet %}
+                <div class="content--verbatim"><pre>{{ line.content }}</pre></div>
+              {% endifequal %}
+              {% ifequal line.type generic %}
+                <div class="content--generic"><pre>{{ line.content }}</pre></div>
+              {% endifequal %}
+            {% endfor %}
+          </div>
+        {% endfor %}
       </article>
     {% endfor %}
 

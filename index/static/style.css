@@ -11,6 +11,11 @@ a {
   overflow-wrap: break-word;
 }
 
+hr {
+  border-color: #eaecef;
+  border-width: 0 0 1px;
+}
+
 h1, h2, h3 {
   line-height: 1.2;
 }
@@ -18,7 +23,8 @@ h1, h2, h3 {
 pre {
   margin: 0;
   line-height: normal;
-  white-space: pre-wrap;
+  overflow-x: auto; /* or visible?! */
+  overflow-x: visible; /* or visible?! */
 }
 
 pre, code {
