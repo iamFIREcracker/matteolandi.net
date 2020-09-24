@@ -39,6 +39,9 @@
               {% ifequal line.type discarded %}
               <p class="content--discarded"><del><span class="--hidden">~</span> {{ line.content }}</del></p>
               {% endifequal %}
+              {% ifequal line.type quoted %}
+              <p class="content--quoted"><blockquote>{{ line.content }}</blockquote></p>
+              {% endifequal %}
               {% ifequal line.type snippet %}
                 <div class="content--verbatim"><pre>{{ line.content }}</pre></div>
               {% endifequal %}

@@ -59,6 +59,14 @@ Clean up, and go back home:
 
     cd -
 
+# re-run a specific ansible role
+
+Just do it:
+
+    cd system/ansible
+    venv/bin/ansible-playbook ./plan.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    cd -
+
 ## virtualenv
 
 In order for the previous command to work, you have to create a 'venv'
