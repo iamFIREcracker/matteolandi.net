@@ -2,26 +2,26 @@
 
 Install `docker`:
 
-    yum install docker
-    systemctl enable docker
+    $ yum install docker
+    $ systemctl enable docker
 
 Install `nginx`:
 
-    yum install nginx
-    rm /etc/nginx/nginx.conf
-    ln -s /data/nginx/nginx.conf /etc/nginx/nginx.conf
-    systemctl enable nginx
+    $ yum install nginx
+    $ rm /etc/nginx/nginx.conf
+    $ ln -s /data/nginx/nginx.conf /etc/nginx/nginx.conf
+    $ systemctl enable nginx
 
 Install `docker-py`:
 
-    easy_install pip
-    pip install docker-py
+    $ easy_install pip
+    $ pip install docker-py
 
 Create deploy user
 
-    useradd deploy -G docker
-    passwd deploy
-    visudo
+    $ useradd deploy -G docker
+    $ passwd deploy
+    $ visudo
     # add:
     #
     #  deploy ALL=NOPASSWD: /bin/systemctl start docker
@@ -40,46 +40,46 @@ explained here:
 
 Bootstrap everything:
 
-    cd system/ansible
-    venv/bin/ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
-    venv/bin/ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    $ cd system/ansible
+    $ venv/bin/ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    $ venv/bin/ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
 
 # build a module
 
 Build the module:
 
-    mvn -T 1C -pl index clean deploy
+    $ mvn -T 1C -pl index clean deploy
 
 Deploy the change:
 
-    cd system/ansible
-    venv/bin/ansible-playbook ./matteolandi-index.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    $ cd system/ansible
+    $ venv/bin/ansible-playbook ./matteolandi-index.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
 
 Clean up, and go back home:
 
-    cd -
+    $ cd -
 
 # re-run a specific ansible role
 
 Just do it:
 
-    cd system/ansible
-    venv/bin/ansible-playbook ./plan.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
-    cd -
+    $ cd system/ansible
+    $ venv/bin/ansible-playbook ./plan.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    $ cd -
 
 ## virtualenv
 
 In order for the previous command to work, you have to create a 'venv'
 _virtualenv_ inside system/ansible first:
 
-    cd system/ansible
-    python3.8 -m virtualenv venv
-    vpip install -r requirements.txt
+    $ cd system/ansible
+    $ python3.8 -m virtualenv venv
+    $ vpip install -r requirements.txt
 
 ### re-create the virtualenv
 
-    cd system/ansible
-    rm -rf venv
-    python3.8 -m virtualenv venv
-    vpip install ansible==2.9.10
-    vpip freeze > requirements.txt
+    $ cd system/ansible
+    $ rm -rf venv
+    $ python3.8 -m virtualenv venv
+    $ vpip install ansible==2.9.10
+    $ vpip freeze > requirements.txt
