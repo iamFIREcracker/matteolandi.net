@@ -55,6 +55,20 @@ http {
         ssl_certificate /data/acme/config/live/matteolandi.net/fullchain.pem;
         ssl_certificate_key /data/acme/config/live/matteolandi.net/privkey.pem;
 
+        add_header Content-Security-Policy "default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'";
+
+        # Only connect to this site via HTTPS for the two years
+        add_header Strict-Transport-Security "max-age=63072000";
+
+        # Prevent browsers from incorrectly detecting non-scripts as scripts
+        add_header X-Content-Type-Options "nosniff";
+
+        # Disallow attempts to iframe site
+        add_header X-Frame-Options "DENY";
+
+        # Block pages from loading when they detect reflected XSS attacks
+        add_header X-XSS-Protection "1; mode=block";
+
         location ^~ /.well-known/acme-challenge {
             root /data/acme;
         }
