@@ -31,6 +31,11 @@ pre, code {
   font-size: 1rem;
 }
 
+blockquote {
+  border-left: 0.5rem solid #eaecef;
+  padding-left: 1rem;
+}
+
 img.full-width {
   width: 100%;
 }
