@@ -15,7 +15,7 @@ Install `nginx`:
 Install `docker-py`:
 
     $ easy_install pip
-    $ pip install docker-py
+    $ pip install docker
 
 Create deploy user
 
