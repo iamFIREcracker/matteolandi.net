@@ -32,7 +32,7 @@ Create deploy user
     #  deploy ALL=NOPASSWD: /bin/systemctl restart nginx
     #  deploy ALL=NOPASSWD: /usr/sbin/nginx
     #  deploy ALL=NOPASSWD: /usr/bin/cat /var/log/messages
-    #  deploy ALL=NOPASSWD: /usr/bin/less/var/log/messages
+    #  deploy ALL=NOPASSWD: /usr/bin/less /var/log/messages
 
 Disable `requiretty` and `!visiblepw` settings from '/etc/sudoers' (like
 explained here:
