@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>lg</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link media="screen" href="style.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1>lg</h1>
+      <aside>Grab links from stdin, and print them to stdout.</aside>
+    </header>
+    <h2>Description</h2>
+    <p>
+    Not much to say about this, given that similar and sometimes even more powerful tools already exist (see: <a href="https://linux.die.net/man/1/urlview">urlview</a>, <a href="https://linux.die.net/man/1/urlview">urlview</a>, or Suckless' <a href="https://st.suckless.org/patches/externalpipe/linkgrabber.sh">linkgrabber.sh</a>).
+    </p>
+
+    <p>
+    So why?  Not a specific reason, really, except that I simply wanted to have some fun with Common Lisp.
+    </p>
+
+    <p>
+    <em>enters <code>lg</code>..</em>
+    </p>
+
+    <h2>Hands-on</h2>
+    <span>Run a command:</span>
+    <pre>
+      <code>
+&gt; tail -n 200 ~/plan/.plan
+...
+Then someone else suggested to use [unintenred symbols](http://www.lispworks.com/documentation/HyperSpec/Body/02_dhe.htm) instead, as that will not only keep you safe from the previously mentioned problem, but also give you the opportunity to _document_ why the specific form / element got intentionally excluded:
+...
+* While releasing `cg`, the created GH release is named `refs/tags/...` -- turns out I was setting the `name` input to `github.ref`: https://github.com/iamFIREcracker/cg/commit/c0c3ef5b17be40872c67709f445dcbc66c1936c2
+? migrate `ap` to GitHub actions -- see `cg`
++ migrate `adventofcode` to GitHub actions -- see `cg`
++ migrate `lg` to GitHub actions -- see `cg`
+? migrate `plan-convert` to GitHub actions -- see `cg`
+? migrate `xml-emitter` to GitHub actions -- see `cg`
+      </code>
+    </pre>
+    <span>Pipe its output into <code>lg</code> to see all the grabbed links...</span>
+    <pre>
+      <code>
+&gt; tail -n 200 ~/plan/.plan | lg
+http://www.lispworks.com/documentation/HyperSpec/Body/02_dhe.htm
+https://github.com/iamFIREcracker/cg/commit/c0c3ef5b17be40872c67709f445dcbc66c1936c2
+      </code>
+    </pre>
+    <span>...or into <code>lg-fzf</code> to be able to send one of the links to the default browser:</span>
+    <pre>
+      <code>
+&gt; tail -n 7 ~/plan/.plan | lg-fzf
+# you select the first link
+# http://www.lispworks.com/documentation/HyperSpec/Body/02_dhe.htm is opened with $BROWSER
+      </code>
+    </pre>
+
+    <h2>Sources</h2>
+    <p>
+    Github: <a href="https://github.com/iamFIREcracker/lg">https://github.com/iamFIREcracker/lg</a>
+    </p>
+  </body>
+</html>
