@@ -17,7 +17,12 @@
 </url>
 <url>
   <loc>https://matteolandi.net/index.html</loc>
-  <lastmod>2021-11-02T10:29:50+01:00</lastmod>
+  <lastmod>2021-11-12T14:35:42+01:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://matteolandi.net/adventofcode.html</loc>
+  <lastmod>2021-11-15T18:13:45+01:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 <url>

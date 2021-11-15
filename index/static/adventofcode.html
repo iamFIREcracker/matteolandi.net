@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advent of Code solutions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link media="screen" href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Advent of Code solutions</h1>
+
+        <aside>
+            My <a href="https://adventofcode.com">Advent of Code</a>
+            solutions, in Common Lisp.
+        </aside>
+    </header>
+
+    <ul>
+        <li>All the code is availalbe on <a href=
+        "https://github.com/iamFIREcracker/adventofcode">GitHub</a>
+        </li>
+
+        <li>2018 was my first year of Advent of Code and I decided to use that
+        as an excuse to learn Common Lisp; it was not easy (seriously, it was
+        not); never got a single day solved in under 24 hours (I joined the
+        competition late and played catch-up instead of solving the problem of
+        the day); I got my 50th start somewhere in the middle of January 2019;
+        the reason why the "2018" section down below does not have solution
+        links for each day is that I originally had all of my solutions
+        squeezed into a giant <a href=
+        "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/main.lisp">
+            main.lisp</a>file (I am still in the process of refactoring all
+            this)
+        </li>
+
+        <li>I did 2017 after completing the 2018 edition</li>
+
+        <li>I was working from India during the 2019 edition, and also
+        attended a wedding (300 Km far from where I was staying) during one of
+        the weekends I was there; even though that made "complete all the
+        problems by the 25th" resolution a tiny bit more difficult to fulfil,
+        I was still able to get my 50th star before the end of that year (an
+        improvement from the edition from 2018)</li>
+
+        <li>I did 2016 in preparation to the 2020 edition; this is when I got
+        into <a href=
+        "https://en.wikipedia.org/wiki/Literate_programming">literate
+        programming</a> and started to <em>describe</em> my solutions
+        </li>
+
+        <li>2020 was my first year in which I managed not only to earn my 50th
+        star on Dec 25, but also to solve each day's challenge in under 24
+        hours</li>
+
+        <li>I completed 2015 right after the 2020 edition; this is the edition
+        where I tried to be as descriptive as possible in my solutions
+        write-up</li>
+    </ul>
+
+    <section>
+        <h2>2020</h2>
+
+        <details>
+            <summary>
+                Toggle personal leaderboard stats for the year
+            </summary>
+
+            <pre><code>
+      --------Part 1--------   --------Part 2--------
+Day       Time   Rank  Score       Time   Rank  Score
+ 25   01:04:57   3328      0   01:05:36   2677      0
+ 24   00:44:22   2518      0   00:53:15   1519      0
+ 23   02:41:43   4360      0   10:59:47   5948      0
+ 22   02:04:15   5221      0   04:08:58   4813      0
+ 21   04:55:08   5649      0   04:57:55   5338      0
+ 20   03:52:37   3838      0   05:16:07   1553      0
+ 19   08:52:01   8253      0   09:28:17   5746      0
+ 18   03:36:44   7136      0   04:16:03   6268      0
+ 17   01:46:03   4142      0   01:50:25   3668      0
+ 16   02:00:52   7462      0   04:35:01   7388      0
+ 15   01:47:30   7380      0   01:58:04   6301      0
+ 14   01:49:39   6897      0   07:32:55  11279      0
+ 13   01:33:50   8042      0   05:25:33   6909      0
+ 12   01:56:49   8063      0   02:02:13   6403      0
+ 11   02:34:06   9328      0   03:19:45   8054      0
+ 10   01:42:33  11666      0   02:18:21   6551      0
+  9   01:36:51  11168      0   01:53:55  10491      0
+  8   03:03:40  16452      0   03:20:49  13610      0
+  7   03:28:16  12620      0   03:38:13  10016      0
+  6   02:57:28  15332      0   03:02:12  13914      0
+  5   01:35:54  10138      0   01:57:11  10141      0
+  4   04:26:24  24047      0   06:03:48  21243      0
+  3   01:38:15  11744      0   01:46:12  10883      0
+  2   05:26:22  27699      0   05:42:43  26445      0
+  1   05:13:06  20406      0   05:17:01  18468      0
+        </code></pre>
+        </details>
+
+        <ul>
+            <li>Day 1: <a href=
+            "https://adventofcode.com/2020/day/1">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day01.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-01">write-up</a>
+            </li>
+
+            <li>Day 2: <a href=
+            "https://adventofcode.com/2020/day/2">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day02.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-02">write-up</a>
+            </li>
+
+            <li>Day 3: <a href=
+            "https://adventofcode.com/2020/day/3">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day03.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-03">write-up</a>
+            </li>
+
+            <li>Day 4: <a href=
+            "https://adventofcode.com/2020/day/4">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day04.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-04">write-up</a>
+            </li>
+
+            <li>Day 5: <a href=
+            "https://adventofcode.com/2020/day/5">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day05.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-05">write-up</a>
+            </li>
+
+            <li>Day 6: <a href=
+            "https://adventofcode.com/2020/day/6">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day06.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-06">write-up</a>
+            </li>
+
+            <li>Day 7: <a href=
+            "https://adventofcode.com/2020/day/7">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day07.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-07">write-up</a>
+                (<a href=
+                "https://matteolandi.net/plan.html#day-2020-12-08">follow-up</a>)
+            </li>
+
+            <li>Day 8: <a href=
+            "https://adventofcode.com/2020/day/8">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day08.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-08">write-up</a>
+            </li>
+
+            <li>Day 9: <a href=
+            "https://adventofcode.com/2020/day/9">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day09.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-09">write-up</a>
+                (<a href=
+                "https://matteolandi.net/plan.html#day-2020-12-18">follow-up</a>)
+            </li>
+
+            <li>Day 10: <a href=
+            "https://adventofcode.com/2020/day/10">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day10.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-10">write-up</a>
+            </li>
+
+            <li>Day 11: <a href=
+            "https://adventofcode.com/2020/day/11">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day11.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-11">write-up</a>
+            </li>
+
+            <li>Day 12: <a href=
+            "https://adventofcode.com/2020/day/12">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day12.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-12">write-up</a>
+            </li>
+
+            <li>Day 13: <a href=
+            "https://adventofcode.com/2020/day/13">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day13.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-13">write-up</a>
+            </li>
+
+            <li>Day 14: <a href=
+            "https://adventofcode.com/2020/day/14">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day14.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-14">write-up</a>
+            </li>
+
+            <li>Day 15: <a href=
+            "https://adventofcode.com/2020/day/15">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day15.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-15">write-up</a>
+            </li>
+
+            <li>Day 16: <a href=
+            "https://adventofcode.com/2020/day/16">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day16.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-16">write-up</a>
+            </li>
+
+            <li>Day 17: <a href=
+            "https://adventofcode.com/2020/day/17">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day17.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-17">write-up</a>
+            </li>
+
+            <li>Day 18: <a href=
+            "https://adventofcode.com/2020/day/18">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day18.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-18">write-up</a>
+            </li>
+
+            <li>Day 19: <a href=
+            "https://adventofcode.com/2020/day/19">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day19.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-19">write-up</a>
+            </li>
+
+            <li>Day 20: <a href=
+            "https://adventofcode.com/2020/day/20">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day20.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-20">write-up</a>
+            </li>
+
+            <li>Day 21: <a href=
+            "https://adventofcode.com/2020/day/21">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day21.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-21">write-up</a>
+                (<a href=
+                "https://matteolandi.net/plan.html#day-2020-12-16">follow-up</a>)
+            </li>
+
+            <li>Day 22: <a href=
+            "https://adventofcode.com/2020/day/22">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day22.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-22">write-up</a>
+            </li>
+
+            <li>Day 23: <a href=
+            "https://adventofcode.com/2020/day/23">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day23.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-23">write-up</a>
+            </li>
+
+            <li>Day 24: <a href=
+            "https://adventofcode.com/2020/day/24">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day24.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-24">write-up</a>
+            </li>
+
+            <li>Day 25: <a href=
+            "https://adventofcode.com/2020/day/25">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2020/day25.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-25">write-up</a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2019</h2>
+
+        <details>
+            <summary>
+                Toggle personal leaderboard stats for the year
+            </summary>
+
+            <pre><code>
+      --------Part 1--------   --------Part 2--------
+Day       Time   Rank  Score       Time   Rank  Score
+ 25       &gt;24h   2741      0       &gt;24h   2109      0
+ 24   03:34:06   1528      0       &gt;24h   2498      0
+ 23   16:09:21   2596      0   18:07:23   2520      0
+ 22       &gt;24h   4665      0       &gt;24h   2512      0
+ 21       &gt;24h   2992      0       &gt;24h   2757      0
+ 20       &gt;24h   2931      0       &gt;24h   2320      0
+ 19   13:41:35   3780      0   14:40:00   2934      0
+ 18       &gt;24h   3866      0       &gt;24h   3360      0
+ 17   01:26:59   1722      0   19:02:35   3594      0
+ 16   14:52:37   5585      0       &gt;24h   4628      0
+ 15   05:38:41   1929      0   06:29:13   1799      0
+ 14   13:31:49   3960      0       &gt;24h   7897      0
+ 13   10:08:17   6393      0   13:00:39   5066      0
+ 12   12:51:15   7697      0       &gt;24h   9165      0
+ 11       &gt;24h   8907      0       &gt;24h   8738      0
+ 10       &gt;24h  11812      0       &gt;24h   9799      0
+  9       &gt;24h  13033      0       &gt;24h  12951      0
+  8   07:59:29   8944      0   08:26:12   8303      0
+  7   13:01:53   9815      0       &gt;24h  12200      0
+  6   12:51:04  12579      0   13:21:57  11369      0
+  5   16:08:57  13566      0   16:39:34  12255      0
+  4   01:08:07   4795      0   07:39:02  12383      0
+  3   01:48:09   3411      0   01:58:56   2691      0
+  2   01:30:12   4619      0   02:51:08   5453      0
+  1   02:42:48   4016      0   03:03:42   3820      0
+        </code></pre>
+        </details>
+
+        <ul>
+            <li>Day 1: <a href=
+            "https://adventofcode.com/2019/day/1">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day01.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 2: <a href=
+            "https://adventofcode.com/2019/day/2">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day02.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 3: <a href=
+            "https://adventofcode.com/2019/day/3">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day03.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 4: <a href=
+            "https://adventofcode.com/2019/day/4">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day04.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 5: <a href=
+            "https://adventofcode.com/2019/day/5">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day05.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 6: <a href=
+            "https://adventofcode.com/2019/day/6">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day06.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 7: <a href=
+            "https://adventofcode.com/2019/day/7">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day07.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 8: <a href=
+            "https://adventofcode.com/2019/day/8">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day08.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 9: <a href=
+            "https://adventofcode.com/2019/day/9">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day09.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 10: <a href=
+            "https://adventofcode.com/2019/day/10">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day10.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 11: <a href=
+            "https://adventofcode.com/2019/day/11">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day11.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 12: <a href=
+            "https://adventofcode.com/2019/day/12">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day12.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 13: <a href=
+            "https://adventofcode.com/2019/day/13">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day13.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 14: <a href=
+            "https://adventofcode.com/2019/day/14">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day14.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 15: <a href=
+            "https://adventofcode.com/2019/day/15">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day15.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 16: <a href=
+            "https://adventofcode.com/2019/day/16">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day16.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 17: <a href=
+            "https://adventofcode.com/2019/day/17">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day17.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 18: <a href=
+            "https://adventofcode.com/2019/day/18">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day18.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 19: <a href=
+            "https://adventofcode.com/2019/day/19">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day19.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 20: <a href=
+            "https://adventofcode.com/2019/day/20">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day20.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 21: <a href=
+            "https://adventofcode.com/2019/day/21">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day21.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 22: <a href=
+            "https://adventofcode.com/2019/day/22">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day22.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 23: <a href=
+            "https://adventofcode.com/2019/day/23">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day23.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 24: <a href=
+            "https://adventofcode.com/2019/day/24">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day24.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 25: <a href=
+            "https://adventofcode.com/2019/day/25">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2019/day25.lisp">
+                solution</a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2018</h2>
+
+        <details>
+            <summary>
+                Toggle personal leaderboard stats for the year
+            </summary>
+
+            <pre><code>
+      --------Part 1--------   --------Part 2--------
+Day       Time   Rank  Score       Time   Rank  Score
+ 25       &gt;24h   3322      0       &gt;24h   2243      0
+ 24       &gt;24h   2720      0       &gt;24h   2640      0
+ 23       &gt;24h   4199      0       &gt;24h   2734      0
+ 22       &gt;24h   3852      0       &gt;24h   2968      0
+ 21       &gt;24h   3083      0       &gt;24h   3410      0
+ 20       &gt;24h   3774      0       &gt;24h   3641      0
+ 19       &gt;24h   4576      0       &gt;24h   3834      0
+ 18       &gt;24h   5495      0       &gt;24h   5159      0
+ 17       &gt;24h   3921      0       &gt;24h   3892      0
+ 16       &gt;24h   5373      0       &gt;24h   5201      0
+ 15       &gt;24h   5177      0       &gt;24h   4916      0
+ 14       &gt;24h   6946      0       &gt;24h   6448      0
+ 13       &gt;24h   7134      0       &gt;24h   6578      0
+ 12       &gt;24h   8779      0       &gt;24h   7836      0
+ 11       &gt;24h  10353      0       &gt;24h  12557      0
+ 10       &gt;24h  10413      0       &gt;24h  10382      0
+  9       &gt;24h  11025      0       &gt;24h  10318      0
+  8       &gt;24h  12200      0       &gt;24h  11656      0
+  7       &gt;24h  14534      0       &gt;24h  15573      0
+  6       &gt;24h  14916      0       &gt;24h  14308      0
+  5       &gt;24h  21138      0       &gt;24h  20687      0
+  4       &gt;24h  21118      0       &gt;24h  20418      0
+  3       &gt;24h  28855      0       &gt;24h  27662      0
+  2       &gt;24h  36566      0       &gt;24h  33371      0
+  1       &gt;24h  43767      0       &gt;24h  42480      0
+        </code></pre>
+        </details>
+
+        <ul>
+            <li>Day 1: <a href=
+            "https://adventofcode.com/2018/day/1">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day01.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 2: <a href=
+            "https://adventofcode.com/2018/day/2">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day02.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 3: <a href=
+            "https://adventofcode.com/2018/day/3">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day03.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 4: <a href=
+            "https://adventofcode.com/2018/day/4">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day04.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-11-08">write-up</a>
+            </li>
+
+            <li>Day 5: <a href=
+            "https://adventofcode.com/2018/day/5">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day05.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 6: <a href=
+            "https://adventofcode.com/2018/day/6">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day06.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-11-09">write-up</a>
+            </li>
+
+            <li>Day 7: <a href=
+            "https://adventofcode.com/2018/day/7">problem</a>
+            </li>
+
+            <li>Day 8: <a href=
+            "https://adventofcode.com/2018/day/8">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day08.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 9: <a href=
+            "https://adventofcode.com/2018/day/9">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day09.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 10: <a href=
+            "https://adventofcode.com/2018/day/10">problem</a>
+            </li>
+
+            <li>Day 11: <a href=
+            "https://adventofcode.com/2018/day/11">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day11.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 12: <a href=
+            "https://adventofcode.com/2018/day/12">problem</a>
+            </li>
+
+            <li>Day 13: <a href=
+            "https://adventofcode.com/2018/day/13">problem</a>
+            </li>
+
+            <li>Day 14: <a href=
+            "https://adventofcode.com/2018/day/14">problem</a>
+            </li>
+
+            <li>Day 15: <a href=
+            "https://adventofcode.com/2018/day/15">problem</a>
+            </li>
+
+            <li>Day 16: <a href=
+            "https://adventofcode.com/2018/day/16">problem</a>
+            </li>
+
+            <li>Day 17: <a href=
+            "https://adventofcode.com/2018/day/17">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day17.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-08">write-up</a>
+            </li>
+
+            <li>Day 18: <a href=
+            "https://adventofcode.com/2018/day/18">problem</a>
+            </li>
+
+            <li>Day 19: <a href=
+            "https://adventofcode.com/2018/day/19">problem</a>
+            </li>
+
+            <li>Day 20: <a href=
+            "https://adventofcode.com/2018/day/20">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day20.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-11-10">write-up</a>
+            </li>
+
+            <li>Day 21: <a href=
+            "https://adventofcode.com/2018/day/21">problem</a>
+            </li>
+
+            <li>Day 22: <a href=
+            "https://adventofcode.com/2018/day/22">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day22.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 23: <a href=
+            "https://adventofcode.com/2018/day/23">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day23.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 24: <a href=
+            "https://adventofcode.com/2018/day/24">problem</a>
+            </li>
+
+            <li>Day 25: <a href=
+            "https://adventofcode.com/2018/day/25">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2018/day25.lisp">
+                solution</a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2017</h2>
+
+        <ul>
+            <li>Day 1: <a href=
+            "https://adventofcode.com/2017/day/1">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day01.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 2: <a href=
+            "https://adventofcode.com/2017/day/2">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day02.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 3: <a href=
+            "https://adventofcode.com/2017/day/3">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day03.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 4: <a href=
+            "https://adventofcode.com/2017/day/4">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day04.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 5: <a href=
+            "https://adventofcode.com/2017/day/5">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day05.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 6: <a href=
+            "https://adventofcode.com/2017/day/6">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day06.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 7: <a href=
+            "https://adventofcode.com/2017/day/7">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day07.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 8: <a href=
+            "https://adventofcode.com/2017/day/8">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day08.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 9: <a href=
+            "https://adventofcode.com/2017/day/9">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day09.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 10: <a href=
+            "https://adventofcode.com/2017/day/10">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day10.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 11: <a href=
+            "https://adventofcode.com/2017/day/11">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day11.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 12: <a href=
+            "https://adventofcode.com/2017/day/12">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day12.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 13: <a href=
+            "https://adventofcode.com/2017/day/13">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day13.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 14: <a href=
+            "https://adventofcode.com/2017/day/14">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day14.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 15: <a href=
+            "https://adventofcode.com/2017/day/15">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day15.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 16: <a href=
+            "https://adventofcode.com/2017/day/16">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day16.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 17: <a href=
+            "https://adventofcode.com/2017/day/17">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day17.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 18: <a href=
+            "https://adventofcode.com/2017/day/18">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day18.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 19: <a href=
+            "https://adventofcode.com/2017/day/19">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day19.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 20: <a href=
+            "https://adventofcode.com/2017/day/20">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day20.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 21: <a href=
+            "https://adventofcode.com/2017/day/21">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day21.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 22: <a href=
+            "https://adventofcode.com/2017/day/22">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day22.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 23: <a href=
+            "https://adventofcode.com/2017/day/23">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day23.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 24: <a href=
+            "https://adventofcode.com/2017/day/24">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day24.lisp">
+                solution</a>
+            </li>
+
+            <li>Day 25: <a href=
+            "https://adventofcode.com/2017/day/25">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2017/day25.lisp">
+                solution</a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2016</h2>
+
+        <ul>
+            <li>Day 1: <a href=
+            "https://adventofcode.com/2016/day/1">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day01.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-08">write-up</a>
+            </li>
+
+            <li>Day 2: <a href=
+            "https://adventofcode.com/2016/day/2">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day02.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-08">write-up</a>
+            </li>
+
+            <li>Day 3: <a href=
+            "https://adventofcode.com/2016/day/3">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day03.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-08">write-up</a>
+            </li>
+
+            <li>Day 4: <a href=
+            "https://adventofcode.com/2016/day/4">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day04.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-09">write-up</a>
+            </li>
+
+            <li>Day 5: <a href=
+            "https://adventofcode.com/2016/day/5">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day05.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-10">write-up</a>
+            </li>
+
+            <li>Day 6: <a href=
+            "https://adventofcode.com/2016/day/6">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day06.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-10">write-up</a>
+            </li>
+
+            <li>Day 7: <a href=
+            "https://adventofcode.com/2016/day/7">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day07.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-10">write-up</a>
+            </li>
+
+            <li>Day 8: <a href=
+            "https://adventofcode.com/2016/day/8">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day08.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-11">write-up</a>
+            </li>
+
+            <li>Day 9: <a href=
+            "https://adventofcode.com/2016/day/9">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day09.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-11">write-up</a>
+            </li>
+
+            <li>Day 10: <a href=
+            "https://adventofcode.com/2016/day/10">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day10.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-13">write-up</a>
+            </li>
+
+            <li>Day 11: <a href=
+            "https://adventofcode.com/2016/day/11">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day11.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-19">write-up</a>
+            </li>
+
+            <li>Day 12: <a href=
+            "https://adventofcode.com/2016/day/12">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day12.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-20">write-up</a>
+            </li>
+
+            <li>Day 13: <a href=
+            "https://adventofcode.com/2016/day/13">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day13.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-20">write-up</a>
+            </li>
+
+            <li>Day 14: <a href=
+            "https://adventofcode.com/2016/day/14">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day14.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-22">write-up</a>
+            </li>
+
+            <li>Day 15: <a href=
+            "https://adventofcode.com/2016/day/15">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day15.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-22">write-up</a>
+            </li>
+
+            <li>Day 16: <a href=
+            "https://adventofcode.com/2016/day/16">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day16.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-22">write-up</a>
+            </li>
+
+            <li>Day 17: <a href=
+            "https://adventofcode.com/2016/day/17">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day17.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-23">write-up</a>
+            </li>
+
+            <li>Day 18: <a href=
+            "https://adventofcode.com/2016/day/18">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day18.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-24">write-up</a>
+            </li>
+
+            <li>Day 19: <a href=
+            "https://adventofcode.com/2016/day/19">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day19.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-25">write-up</a>
+            </li>
+
+            <li>Day 20: <a href=
+            "https://adventofcode.com/2016/day/20">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day20.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-26">write-up</a>
+            </li>
+
+            <li>Day 21: <a href=
+            "https://adventofcode.com/2016/day/21">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day21.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-27">write-up</a>
+            </li>
+
+            <li>Day 22: <a href=
+            "https://adventofcode.com/2016/day/22">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day22.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-28">write-up</a>
+            </li>
+
+            <li>Day 23: <a href=
+            "https://adventofcode.com/2016/day/23">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day23.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-29">write-up</a>
+            </li>
+
+            <li>Day 24: <a href=
+            "https://adventofcode.com/2016/day/24">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day24.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-30">write-up</a>
+            </li>
+
+            <li>Day 25: <a href=
+            "https://adventofcode.com/2016/day/25">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2016/day25.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-11-30">write-up</a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2015</h2>
+
+        <ul>
+            <li>Day 1: <a href=
+            "https://adventofcode.com/2015/day/1">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day01.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-30">write-up</a>
+            </li>
+
+            <li>Day 2: <a href=
+            "https://adventofcode.com/2015/day/2">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day02.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-31">write-up</a>
+            </li>
+
+            <li>Day 3: <a href=
+            "https://adventofcode.com/2015/day/3">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day03.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2020-12-31">write-up</a>
+            </li>
+
+            <li>Day 4: <a href=
+            "https://adventofcode.com/2015/day/4">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day04.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-01">write-up</a>
+            </li>
+
+            <li>Day 5: <a href=
+            "https://adventofcode.com/2015/day/5">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day05.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-02">write-up</a>
+            </li>
+
+            <li>Day 6: <a href=
+            "https://adventofcode.com/2015/day/6">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day06.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-02">write-up</a>
+            </li>
+
+            <li>Day 7: <a href=
+            "https://adventofcode.com/2015/day/7">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day07.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-03">write-up</a>
+            </li>
+
+            <li>Day 8: <a href=
+            "https://adventofcode.com/2015/day/8">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day08.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-03">write-up</a>
+            </li>
+
+            <li>Day 9: <a href=
+            "https://adventofcode.com/2015/day/9">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day09.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-06">write-up</a>
+            </li>
+
+            <li>Day 10: <a href=
+            "https://adventofcode.com/2015/day/10">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day10.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-07">write-up</a>
+            </li>
+
+            <li>Day 11: <a href=
+            "https://adventofcode.com/2015/day/11">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day11.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-07">write-up</a>
+            </li>
+
+            <li>Day 12: <a href=
+            "https://adventofcode.com/2015/day/12">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day12.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-07">write-up</a>
+            </li>
+
+            <li>Day 13: <a href=
+            "https://adventofcode.com/2015/day/13">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day13.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-08">write-up</a>
+            </li>
+
+            <li>Day 14: <a href=
+            "https://adventofcode.com/2015/day/14">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day14.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-08">write-up</a>
+            </li>
+
+            <li>Day 15: <a href=
+            "https://adventofcode.com/2015/day/15">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day15.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-09">write-up</a>
+            </li>
+
+            <li>Day 16: <a href=
+            "https://adventofcode.com/2015/day/16">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day16.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-10">write-up</a>
+            </li>
+
+            <li>Day 17: <a href=
+            "https://adventofcode.com/2015/day/17">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day17.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-10">write-up</a>
+            </li>
+
+            <li>Day 18: <a href=
+            "https://adventofcode.com/2015/day/18">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day18.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-10">write-up</a>
+            </li>
+
+            <li>Day 19: <a href=
+            "https://adventofcode.com/2015/day/19">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day19.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-11">write-up</a>
+            </li>
+
+            <li>Day 20: <a href=
+            "https://adventofcode.com/2015/day/20">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day20.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-12">write-up</a>
+            </li>
+
+            <li>Day 21: <a href=
+            "https://adventofcode.com/2015/day/21">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day21.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-14">write-up</a>
+            </li>
+
+            <li>Day 22: <a href=
+            "https://adventofcode.com/2015/day/22">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day22.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-15">write-up</a>
+            </li>
+
+            <li>Day 23: <a href=
+            "https://adventofcode.com/2015/day/23">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day23.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-16">write-up</a>
+            </li>
+
+            <li>Day 24: <a href=
+            "https://adventofcode.com/2015/day/24">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day24.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-16">write-up</a>
+            </li>
+
+            <li>Day 25: <a href=
+            "https://adventofcode.com/2015/day/25">problem</a>, <a href=
+            "https://github.com/iamFIREcracker/adventofcode/blob/master/src/2015/day25.lisp">
+                solution</a>, <a href=
+                "https://matteolandi.net/plan.html#day-2021-01-17">write-up</a>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
