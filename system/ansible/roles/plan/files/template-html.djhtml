@@ -14,7 +14,7 @@
     <header>
       <h1>.plan</h1>
       <aside>
-        <div class="description"><em><pre>{{ description }}</pre></em></div>
+        <div class="description"><pre>{{ description }}</pre></div>
       </aside>
     </header>
 
@@ -40,7 +40,7 @@
               <p class="content--discarded"><del><span class="--hidden">~</span> {{ line.content }}</del></p>
               {% endifequal %}
               {% ifequal line.type quoted %}
-              <p class="content--quoted"><blockquote>{{ line.content }}</blockquote></p>
+              <blockquote class="content--quoted">{{ line.content }}</blockquote>
               {% endifequal %}
               {% ifequal line.type snippet %}
                 <div class="content--verbatim"><pre>{{ line.content }}</pre></div>

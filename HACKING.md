@@ -40,10 +40,8 @@ explained here:
 
 Bootstrap everything:
 
-    $ cd system/ansible
-    $ venv/bin/ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
-    $ venv/bin/ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
-    $ cd -
+    $ (cd system/ansible && venv/bin/ansible-playbook ./boostrap.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv)
+    $ (cd system/ansible && venv/bin/ansible-playbook ./site.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv)
 
 # build a module
 
@@ -53,20 +51,15 @@ Build the module:
 
 Deploy the change:
 
-    $ cd system/ansible
-    $ venv/bin/ansible-playbook ./matteolandi-index.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
+    $ (cd system/ansible && venv/bin/ansible-playbook ./matteolandi-index.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv)
 
-Clean up, and go back home:
-
-    $ cd -
 
 # re-run a specific ansible role
 
 Just do it:
 
-    $ cd system/ansible
-    $ venv/bin/ansible-playbook ./plan.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv
-    $ cd -
+    $ (cd system/ansible && venv/bin/ansible-playbook ./plan.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv)
+    $ (cd system/ansible && venv/bin/ansible-playbook ./nginx.yml -i ./production --vault-password-file ~/.vault_pass.matteolandi.txt -vv)
 
 ## virtualenv
 
