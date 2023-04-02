@@ -1,3 +1,21 @@
+- name: 'Creates /data/matteolandi-index directory'
+  file:
+    path: /data/matteolandi-index
+    state: directory
+    mode: 0775
+
+- name: 'Creates /data/matteolandi-index/nginx directory'
+  file:
+    path: /data/matteolandi-index/nginx
+    state: directory
+    mode: 0775
+
+- name: 'Copies /data/matteolandi-index/nginx/matteolandi.net.conf'
+  copy:
+    src: matteolandi.net.conf
+    dest: /data/matteolandi-index/nginx/matteolandi.net.conf
+    mode: 0700
+
 - include_role:
     name: docker-login
 

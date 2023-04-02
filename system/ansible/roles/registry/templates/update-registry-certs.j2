@@ -9,7 +9,7 @@ certs() {
     cat /data/acme/config/live/$site/cert.pem /data/acme/config/live/$site/chain.pem > /data/registry/certs/domain.crt
 
     echo 'Creating domain.key'
-    cat /data/acme/config/live/matteolandi.net/privkey.pem > /data/registry/certs/domain.key
+    cat /data/acme/config/live/$site/privkey.pem > /data/registry/certs/domain.key
 }
 
 certs {{ server_name }}

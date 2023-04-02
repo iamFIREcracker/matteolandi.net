@@ -26,110 +26,29 @@ http {
     include             /etc/nginx/mime.types;
     default_type        application/octet-stream;
 
+    server_tokens off; # hides version on 404 or 500 pages
+    # more_clear_headers Server; # hide Server header
+
+    # Only connect to this site via HTTPS for the two years
+    add_header Strict-Transport-Security "max-age=63072000";
+
+    # Prevent browsers from incorrectly detecting non-scripts as scripts
+    add_header X-Content-Type-Options "nosniff";
+
+    # Disallow attempts to iframe site
+    add_header X-Frame-Options "DENY";
+
+    # Block pages from loading when they detect reflected XSS attacks
+    add_header X-XSS-Protection "1; mode=block";
+
+    # Don't support older TLS versions
+    ssl_protocols TLSv1.2 TLSv1.3;
+    # Forward Secrecy
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS +RC4 RC4";
+
     # Load modular configuration files from the /etc/nginx/conf.d directory.
     # See http://nginx.org/en/docs/ngx_core_module.html#include
     # for more information.
     include /etc/nginx/conf.d/*.conf;
-
-    server {
-        listen       80;
-        listen       [::]:80;
-        server_name  matteolandi.net;
-
-        location / {
-            return 302 https://$server_name$request_uri;
-        }
-
-        location ^~ /.well-known/acme-challenge {
-            root /data/acme;
-        }
-    }
-
-    server {
-        listen       443 ssl;
-        listen       [::]:443 ssl;
-        server_name  matteolandi.net;
-        root         /usr/share/nginx/html;
-        charset      UTF-8;
-
-        ssl_certificate /data/acme/config/live/matteolandi.net/fullchain.pem;
-        ssl_certificate_key /data/acme/config/live/matteolandi.net/privkey.pem;
-
-        add_header Content-Security-Policy "default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'";
-
-        # Only connect to this site via HTTPS for the two years
-        add_header Strict-Transport-Security "max-age=63072000";
-
-        # Prevent browsers from incorrectly detecting non-scripts as scripts
-        add_header X-Content-Type-Options "nosniff";
-
-        # Disallow attempts to iframe site
-        add_header X-Frame-Options "DENY";
-
-        # Block pages from loading when they detect reflected XSS attacks
-        add_header X-XSS-Protection "1; mode=block";
-
-        location ^~ /.well-known/acme-challenge {
-            root /data/acme;
-        }
-
-        location /404A75B6.asc {
-            root /data/pgp;
-            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-            add_header Content-Type text/plain;
-            expires off;
-        }
-
-        location /.plan {
-            root /data/plan;
-            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-            add_header Content-Type text/plain;
-            expires off;
-        }
-
-        location /plan.html {
-            root /data/plan;
-            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-            expires off;
-        }
-
-        location /plan.xml {
-            root /data/plan;
-            add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-            expires off;
-        }
-
-        location / {
-            proxy_set_header X-Forwarded-Host $host;
-            proxy_set_header X-Forwarded-Server $host;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_pass http://0.0.0.0:2811;
-        }
-
-        location /downloads {
-            sendfile  on;
-            root      /data/nginx;
-        }
-
-        location /static {
-            sendfile  on;
-            root      /data/nginx;
-        }
-
-        location /ourwedding {
-            rewrite ^([^.]*[^/])$ $1/ permanent;
-            proxy_set_header X-Forwarded-Host $host;
-            proxy_set_header X-Forwarded-Server $host;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_pass http://0.0.0.0:2905/;
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
 }

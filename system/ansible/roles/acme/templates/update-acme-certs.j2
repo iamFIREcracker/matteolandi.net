@@ -27,6 +27,7 @@ acme() {
         -d $site
 }
 
-acme {{ acme_email }} {{ server_name }}
+acme matteo+acme@matteolandi.net matteolandi.net
+acme matteo+aspettandoemma@matteolandi.net aspettandoemma.com
 
 sudo nginx -s reload

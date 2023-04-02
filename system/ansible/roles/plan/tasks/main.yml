@@ -75,8 +75,8 @@
     job: '/data/plan/update-dot-plan'
 - name: 'Executes update-dot-plan'
   shell: /data/plan/update-dot-plan
-  args:
-    creates: /data/plan/.plan
+  # args:
+  #   creates: /data/plan/.plan
 
 - name: 'Installs cron job for daily refresh of plan.xml file'
   cron:
@@ -86,8 +86,8 @@
     job: '/data/plan/update-plan-xml'
 - name: 'Executes update-plan-xml'
   shell: /data/plan/update-plan-xml
-  args:
-    creates: /data/plan/plan.xml
+  # args:
+  #   creates: /data/plan/plan.xml
 
 - name: 'Installs cron job for daily refresh of plan.html file'
   cron:
@@ -97,6 +97,5 @@
     job: '/data/plan/update-plan-html'
 - name: 'Executes update-plan-html'
   shell: /data/plan/update-plan-html
-  args:
-    creates: /data/plan/plan.html
-
+  # args:
+  #   creates: /data/plan/plan.html
